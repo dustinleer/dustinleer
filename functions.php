@@ -105,16 +105,11 @@ add_action( 'widgets_init', 'dustinleer_widgets_init' );
  * Enqueue scripts and styles.
  */
 function dustinleer_scripts() {
-	wp_enqueue_style( 'dustinleer-style', get_stylesheet_uri() );
-
-	// wp_enqueue_script( 'dustinleer-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	// wp_enqueue_script( 'dustinleer-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_style( 'dustinleer-style', get_template_directory_uri() . '/style.min.css', false );
 
 	wp_enqueue_script( 'dustinleer-main-scripts', get_template_directory_uri() . '/assets/js/main.min.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'dustinleer-vendor-scripts', get_template_directory_uri() . '/assets/js/vendor.js', array(), '20151215', true );
-
+	wp_enqueue_script( 'dustinleer-vendor-scripts', get_template_directory_uri() . '/assets/js/vendor.min.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
