@@ -17,7 +17,7 @@ module.exports = {
 
 	// Style options.
 	styleSRC: './assets/css/sass/style.scss', // Path to main .scss file.
-	styleDestination: './assets/css/style.css', // Path to place the compiled CSS file. Default set to root folder.
+	styleDestination: './', // Path to place the compiled CSS file. Default set to root folder.
 	outputStyle: 'expanded', // Available options → 'compact' or 'compressed' or 'nested' or 'expanded'
 	errLogToConsole: true,
 	precision: 10,
@@ -43,13 +43,13 @@ module.exports = {
 	watchPhp: './**/*.php', // Path to all PHP files.
 
 	// Translation options.
-	textDomain: 'WPGULP', // Your textdomain here.
-	translationFile: 'WPGULP.pot', // Name of the translation file.
+	textDomain: 'DustinLeer', // Your textdomain here.
+	translationFile: 'DustinLeer.pot', // Name of the translation file.
 	translationDestination: './languages', // Where to save the translation files.
-	packageName: 'WPGULP', // Package name.
-	bugReport: 'https://AhmadAwais.com/contact/', // Where can users report bugs.
-	lastTranslator: 'Ahmad Awais <your_email@email.com>', // Last translator Email ID.
-	team: 'AhmadAwais <your_email@email.com>', // Team's Email ID.
+	packageName: 'DustinLeer', // Package name.
+	bugReport: 'https://dustinleer.com/contact/', // Where can users report bugs.
+	lastTranslator: 'Dustin Leer <hello@dustinleer.com>', // Last translator Email ID.
+	team: 'Dustin Leer <hello@dustinleer.com>', // Team's Email ID.
 
 	// Browsers you care about for autoprefixing. Browserlist https://github.com/ai/browserslist
 	// The following list is set as per WordPress requirements. Though, Feel free to change.
