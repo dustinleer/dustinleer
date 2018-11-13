@@ -70,9 +70,8 @@ function dustinleer_setup() {
 	
 	// Add theme support for custom logo.
 	add_theme_support( 'custom-logo', array(
-		// 'height'      => 100,
-		// 'width'       => 400,
-		'flex-width' => true,
+		'flex-width' 	=> true,
+		'header-text' 	=> array( 'site-title', 'site-description' ),
 	) );
 
 }
@@ -188,3 +187,42 @@ if( function_exists('acf_add_options_page') ) {
 	
 }
 
+function siteBrand( $html ) {
+	// grab the site name as set in customizer options
+	$site = get_bloginfo( 'name' );
+
+	// Wrap the site name in an H1 if on home, in a paragraph tag if not.
+	is_front_page() ? $title = '<h1>' . $site . '</h1>' : $title = '<p>' . $site . '</p>';
+	
+	// Grab the home URL
+	$home = esc_url(home_url('/'));
+	
+	// Class for the link
+	$class = 'navbar-brand';
+	
+	// Set anchor content to $title
+	$content = $title;
+	
+	// Check if there is a custom logo set in customizer options...
+	if ( has_custom_logo() ) {
+		// get the URL to the logo
+		$logo    = wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full', false, array(
+			'class'    => 'brand-logo img-responsive',
+			'itemprop' => 'logo',
+			'header-text' 	=> array( 'site-title', 'site-description' ),
+		));
+	
+		// we have a logo, so let's update the $content variable
+		$content = $logo;
+	
+		// include the site name markup, hidden with screen reader friendly styles
+		// $content .= '<span class="sr-only">' . $title . '</span>';
+	}
+	
+	// construct the final html
+	$html = sprintf( '<a href="%1$s" class="%2$s" rel="home" itemprop="url">%3$s</a>', $home, $class, $content );
+	
+	// return the result to the front end
+	return $html;
+}
+add_filter( 'get_custom_logo', 'siteBrand' );
