@@ -120,7 +120,7 @@ a:hover,a:active{outline:0}
 .widget select{max-width:100%}
 .wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;padding:1em}
 .site-header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
-.site-header .wrapper{width:100%;position:absolute;z-index:1}
+.site-header .wrapper{width:100%;max-width:1600px;position:absolute;margin:auto;left:0;right:0;z-index:1}
 .site-header .custom-logo{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;max-width:85px}
 .site-header .main-navigation{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .site-header .main-navigation .menu{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}

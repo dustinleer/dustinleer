@@ -5,7 +5,11 @@
 	justify-content: space-between;
 	.wrapper {
 		width: 100%;
+		max-width: 1600px;
 		position: absolute;
+		margin: auto;
+		left: 0;
+		right: 0;
 		z-index: 1;
 	}
 	.custom-logo {
