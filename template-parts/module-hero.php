@@ -33,13 +33,18 @@ if( have_rows( 'page_modules' ) ) {
 
             echo '<div class="hero-wrapper">';
                 echo '<section class="hero">'; /*style="background-image: url('. $img["url"] .');">';*/
-					echo '<img class="hero-image" src="' . $img['sizes']['large'] . '" alt="' . $img['alt'] . '" />';
+					
+					echo '<div class="hero-content-wrapper">';
+						echo '<img class="hero-image" src="' . $img['sizes']['large'] . '" alt="' . $img['alt'] . '" />';
+						
+						echo '<section class="hero-content">';
+							echo '<h1 class="title">' . $header . '</h1>';
+							echo '<p class="sub-title">' . $content . '</p>';
+							echo '<a class="hero-cta cta" href="' . $link['url'] . '" target="' . $link['target'] . '">' . $link['title'] . '</a>';
+						echo '</section>';
+					echo '</div>';
+
 					echo '<section class="hero-secondary"></section>';
-					echo '<section class="hero-content">';
-					echo '<h1 class="title">' . $header . '</h1>';
-					echo '<p class="sub-title">' . $content . '</p>';
-					echo '<a class="hero-cta cta" href="' . $link['url'] . '" target="' . $link['target'] . '">' . $link['title'] . '</a>';
-					echo '</section>';
 				echo '</section>';
 			echo '</div>';
         }
