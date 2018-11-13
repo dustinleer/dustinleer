@@ -103,8 +103,8 @@ a:hover,a:active{outline:0}
 .main-navigation ul ul a{width:200px}
 .main-navigation ul li:hover>ul,.main-navigation ul li.focus>ul{left:auto}
 .main-navigation li{float:left;position:relative}
-.main-navigation a{display:block;text-decoration:none}
-.menu-toggle,.main-navigation.toggled ul{display:block}
+.main-navigation a{display:block;text-decoration:none;color:#fff}
+.menu-toggle,.main-navigation.toggled ul{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .site-main .comment-navigation,.site-main .posts-navigation,.site-main .post-navigation{margin:0 0 1.5em;overflow:hidden}
 .comment-navigation .nav-previous,.posts-navigation .nav-previous,.post-navigation .nav-previous{float:left;width:50%}
 .comment-navigation .nav-next,.posts-navigation .nav-next,.post-navigation .nav-next{float:right;text-align:right;width:50%}
@@ -118,7 +118,23 @@ a:hover,a:active{outline:0}
 .clear:after,.entry-content:after,.comment-content:after,.site-header:after,.site-content:after,.site-footer:after{clear:both}
 .widget{margin:0 0 1.5em}
 .widget select{max-width:100%}
-.custom-logo{max-width:200px}
+.wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;padding:1em}
+.site-header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+.site-header .wrapper{width:100%;position:absolute;z-index:1}
+.site-header .custom-logo{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;max-width:200px}
+.site-header .main-navigation{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.site-header .main-navigation .menu{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
+.site-header .main-navigation .menu ul{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
+.site-header .main-navigation .menu ul li{display:-webkit-box;display:-ms-flexbox;display:flex;padding-left:1em}
+.site-header .main-navigation .menu ul li:first-child{padding-left:0}
+.site-header .hero-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%}
+.site-header .hero-wrapper:before{position:absolute;content:"";width:100%;height:640px;top:0;left:0;background-color:#ec1846;-webkit-transform-origin:top left;transform-origin:top left;-webkit-transform:skewY(0);transform:skewY(0);z-index:-10}
+.site-header .hero{width:100%;background:#ec1846;background-repeat:no-repeat;background-position:bottom right;background-size:contain;height:500px;max-height:100%;position:relative;-webkit-transform:skew(0,-3deg);transform:skew(0,-3deg);overflow:hidden}
+.site-header .hero img.visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;opacity:0}
+.site-header .hero-image{-webkit-transform:skew(0,3deg);transform:skew(0,3deg);text-align:center;position:absolute;right:0;bottom:-80px;z-index:1}
+.site-header .hero-content{-webkit-transform:skew(0,3deg);transform:skew(0,3deg);text-align:left;padding:0 0 0 4em;color:#fff;position:absolute;z-index:1;top:0;left:0;bottom:0;margin:auto;height:260px;max-width:540px}
+.site-header .hero .title{font-weight:800}
+.site-header .hero-secondary{width:100%;height:640px;background-image:url(/wp-content/themes/dustinleer/assets/img/node-mesh-header.svg);background-position:210px -750px;background-repeat:no-repeat;-webkit-transform:skew(0,3deg);transform:skew(0,3deg);position:relative;background-color:#ec1846}
 .sticky{display:block}
 .hentry{margin:0 0 1.5em}
 .byline,.updated:not(.published){display:none}
