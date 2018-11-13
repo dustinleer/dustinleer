@@ -61,6 +61,7 @@
 	a {
 		display: block;
 		text-decoration: none;
+		color: $white;
 	}
 
 	.current_page_item > a,
@@ -73,7 +74,10 @@
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
-	display: block;
+	display: flex;
+	flex-basis: 100%;
+	flex-grow: 1;
+	justify-content: center;
 }
 
 @media screen and (min-width: 37.5em) {
