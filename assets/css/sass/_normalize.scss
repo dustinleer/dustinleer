@@ -8,6 +8,11 @@ body {
 	margin: 0;
 }
 
+body,
+html {
+	min-width: 320px;
+}
+
 article,
 aside,
 details,
