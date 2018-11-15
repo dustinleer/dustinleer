@@ -40,11 +40,12 @@ if( have_rows( 'page_modules' ) ) {
 						echo '<section class="hero-content">';
 							echo '<h1 class="title">' . $header . '</h1>';
 							echo '<p class="sub-title">' . $content . '</p>';
-							echo '<a class="hero-cta cta" href="' . $link['url'] . '" target="' . $link['target'] . '">' . $link['title'] . '</a>';
+							if ( $link ) {
+								echo '<a class="hero-cta cta" href="' . $link['url'] . '" target="' . $link['target'] . '">' . $link['title'] . '</a>';
+							}
 						echo '</section>';
 					echo '</div>';
-
-					echo '<section class="hero-secondary"></section>';
+					
 				echo '</section>';
 			echo '</div>';
         }
