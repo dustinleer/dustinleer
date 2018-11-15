@@ -58,7 +58,8 @@
 		}
 		&:last-child {
 			a {
-				margin-left: 1em;
+				margin-left: 0.5em;
+				// margin-left: 1em;
 				@media ( min-width: 700px ) {
 					margin-left: 2em;
 				}				
@@ -70,7 +71,7 @@
 		display: block;
 		text-decoration: none;
 		color: $white;
-		padding: .75em 1em;
+		padding: .75em 0.5em;
 		font-size: 0.8em;
 		@media ( min-width: 580px ) {
 			font-size: 0.9em;
