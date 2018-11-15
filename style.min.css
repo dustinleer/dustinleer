@@ -123,6 +123,7 @@ a:hover,a:active{outline:0}
 .clear:after,.entry-content:after,.comment-content:after,.site-header:after,.site-content:after,.site-footer:after{clear:both}
 .widget{margin:0 0 1.5em}
 .widget select{max-width:100%}
+.buttons{word-break:break-all}
 .wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;padding:1em}
 .blog .content-area .wrapper{-ms-flex-wrap:wrap;flex-wrap:wrap}
 .blog .content-area .wrapper article{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;-ms-flex-wrap:wrap;flex-wrap:wrap}
