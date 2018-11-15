@@ -44,12 +44,8 @@ if (is_blog()) {
 							echo '<img class="hero-image" src="' . $img['sizes']['large'] . '" alt="' . $img['alt'] . '" />';
 							
 							echo '<section class="hero-content">';
-								if ( is_single ) {
-									echo '<h1 class="title">' . $header . '</h1>';
-								} else {
-									$title = get_the_title();
+									$title = wp_title( '', false, 'right' );
 									echo '<h1 class="title">' . $title . '</h1>';
-								}
 								if ( $content ) {
 									echo '<p class="sub-title">' . $content . '</p>';
 								}
