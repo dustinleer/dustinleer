@@ -3,3 +3,33 @@
 	flex-basis: 100%;
 	padding: 1em;
 }
+
+.blog {
+	.content-area {
+		.wrapper {
+			flex-wrap: wrap;
+			article {
+				display: flex;
+				flex-basis: 100%;
+				flex-wrap: wrap;
+			}
+		}
+	}
+}
+
+.content-area {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	z-index: 9;
+	.wrapper {
+		max-width: 1200px;
+		display: flex;
+		flex-wrap: wrap;
+		article {
+			display: flex;
+			flex-basis: 100%;
+			flex-wrap: wrap;
+		}
+	}
+}
