@@ -229,3 +229,12 @@ function siteBrand( $html ) {
 	return $html;
 }
 add_filter( 'get_custom_logo', 'siteBrand' );
+
+function is_blog () {
+	if ( (is_archive()) || (is_author()) || (is_category()) || (is_home()) || (is_single()) || (is_tag()) ) {
+		return true;
+	}
+	else {
+		return false; 
+	}
+}
