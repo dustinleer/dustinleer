@@ -14,16 +14,12 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'dustinleer' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'dustinleer' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'dustinleer' ), 'dustinleer', '<a href="https://automattic.com/">Dustin Leer</a>' );
-			?>
+		<div class="site-info wrapper">
+			<div class="copyright">
+				Copyright &copy; <?php echo date("Y"); ?><span class="sep"> | </span> <a href="/">dustinleer.com</a> <span class="sep"> | </span>All manner of riff raff will be tarred and feathered.
+			</div>
+			
+			<?php dustinleer_social_icons(); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
