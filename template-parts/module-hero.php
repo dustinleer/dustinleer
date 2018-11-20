@@ -28,6 +28,7 @@ if (is_blog()) {
 
 				// vars
 				$img = get_sub_field( 'pm_hero_image', get_option('page_for_posts') );
+				$featured_img = get_the_post_thumbnail_url( $post_id, 'full', get_option('page_for_posts') );
 				// $url = $img['url'];
 				// $title = $img['title'];
 				// $alt = $img['alt'];
@@ -38,10 +39,17 @@ if (is_blog()) {
 				$link = get_sub_field( 'pm_hero_link', get_option('page_for_posts') );
 
 				echo '<div class="hero-wrapper">';
-					echo '<section class="hero">'; /*style="background-image: url('. $img["url"] .');">';*/
+					if ( $img_bg ) {
+						echo '<section class="hero" style="background-image: url('. $img_bg["url"] .')">';
+					} else {
+						// echo '<section class="hero no-image-uploaded" style="background-image: url(/wp-content/themes/dustinleer/assets/img/node-mesh-header.svg)">';
+						echo '<section class="hero no-image-uploaded" style="background-image: url('. $featured_img .')">';
+					}
 						
 						echo '<div class="hero-content-wrapper">';
+						if ( $img_bg ) {
 							echo '<img class="hero-image" src="' . $img['sizes']['large'] . '" alt="' . $img['alt'] . '" />';
+						}
 							
 							echo '<section class="hero-content">';
 								$title = wp_title( '', false, 'right' );
@@ -76,20 +84,25 @@ if (is_blog()) {
 
 				// vars
 				$img = get_sub_field( 'pm_hero_image' );
-				// $url = $img['url'];
-				// $title = $img['title'];
-				// $alt = $img['alt'];
-				// $caption = $img['caption'];
+				$img_bg = get_sub_field( 'pm_background_image' );
+				$featured_img = get_the_post_thumbnail_url( $post_id, 'full' );
 
 				$header = get_sub_field( 'pm_hero_header' );
 				$content = get_sub_field( 'pm_hero_content' );
 				$link = get_sub_field( 'pm_hero_link' );
 
 				echo '<div class="hero-wrapper">';
-					echo '<section class="hero">'; /*style="background-image: url('. $img["url"] .');">';*/
+					if ( $img_bg ) {
+						echo '<section class="hero" style="background-image: url('. $img_bg["url"] .')">';
+					} else {
+						// echo '<section class="hero no-image-uploaded" style="background-image: url(/wp-content/themes/dustinleer/assets/img/node-mesh-header.svg)">';
+						echo '<section class="hero no-image-uploaded" style="background-image: url('. $featured_img .')">';
+					}
 						
 						echo '<div class="hero-content-wrapper">';
+						if ( $img_bg ) {
 							echo '<img class="hero-image" src="' . $img['sizes']['large'] . '" alt="' . $img['alt'] . '" />';
+						}
 							
 							echo '<section class="hero-content">';
 								if ( $header ) {	

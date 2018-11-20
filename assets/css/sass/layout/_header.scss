@@ -123,7 +123,7 @@
 	.hero {
 		width: 100%;
 		background: $pink;
-		background-image: url(/wp-content/themes/dustinleer/assets/img/node-mesh-header.svg);
+		// background-image: url(/wp-content/themes/dustinleer/assets/img/node-mesh-header.svg);
 		background-repeat: no-repeat;
 		background-position: -90px -520px;
 		max-height: 100%;
@@ -147,6 +147,11 @@
 		}
 		@media ( min-width: 75em ) { //1200px
 			background-position: 460px -520px;
+		}
+		&.no-image-uploaded {
+			background-position: 0;
+			background-size: 100%;
+			background-blend-mode: darken, luminosity;
 		}
 		img.visually-hidden {
 			border: 0;
