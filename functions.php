@@ -192,6 +192,9 @@ if( function_exists('acf_add_options_page') ) {
 	
 }
 
+/**
+ * Add Custom Logo Function for Customizer
+ */
 function siteBrand( $html ) {
 	// grab the site name as set in customizer options
 	$site = get_bloginfo( 'name' );
@@ -232,6 +235,9 @@ function siteBrand( $html ) {
 }
 add_filter( 'get_custom_logo', 'siteBrand' );
 
+/**
+ * Add Function to check if is_blog
+ */
 function is_blog () {
 	if ( (is_archive()) || (is_author()) || (is_category()) || (is_home()) || (is_single()) || (is_tag()) ) {
 		return true;
@@ -241,6 +247,9 @@ function is_blog () {
 	}
 }
 
+/**
+ * Adds Social Media Array for Customizer
+ */
 function dustinleer_social_array() {
 
 	$social_sites = array(
@@ -289,6 +298,9 @@ function dustinleer_social_array() {
 	return apply_filters( 'dustinleer_social_array_filter', $social_sites );
 }
 
+/**
+ * Adds Social Media Function for Call
+ */
 function dustinleer_social_icons() {
 
 	$social_sites = dustinleer_social_array();
@@ -314,3 +326,119 @@ function dustinleer_social_icons() {
 		echo "</ul>";
 	}
 }
+
+/**
+ * Register Testimonial Custom Post Type
+ */
+function testimonial() {
+
+	$labels = array(
+		'name'                  => _x( 'Testimonials', 'Post Type General Name', 'testimonial' ),
+		'singular_name'         => _x( 'Testimonial', 'Post Type Singular Name', 'testimonial' ),
+		'menu_name'             => __( 'Testimonials', 'testimonial' ),
+		'name_admin_bar'        => __( 'Testimonial', 'testimonial' ),
+		'archives'              => __( 'Testimonial Archives', 'testimonial' ),
+		'attributes'            => __( 'Testimonial Attributes', 'testimonial' ),
+		'parent_item_colon'     => __( 'Parent Testimonial:', 'testimonial' ),
+		'all_items'             => __( 'All Testimonials', 'testimonial' ),
+		'add_new_item'          => __( 'Add New Testimonial', 'testimonial' ),
+		'add_new'               => __( 'Add New', 'testimonial' ),
+		'new_item'              => __( 'New Testimonial', 'testimonial' ),
+		'edit_item'             => __( 'Edit Testimonial', 'testimonial' ),
+		'update_item'           => __( 'Update Testimonial', 'testimonial' ),
+		'view_item'             => __( 'View Testimonial', 'testimonial' ),
+		'view_items'            => __( 'View Testimonials', 'testimonial' ),
+		'search_items'          => __( 'Search Testimonial', 'testimonial' ),
+		'not_found'             => __( 'Not found', 'testimonial' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'testimonial' ),
+		'featured_image'        => __( 'Featured Image', 'testimonial' ),
+		'set_featured_image'    => __( 'Set featured image', 'testimonial' ),
+		'remove_featured_image' => __( 'Remove featured image', 'testimonial' ),
+		'use_featured_image'    => __( 'Use as featured image', 'testimonial' ),
+		'insert_into_item'      => __( 'Insert into testimonial', 'testimonial' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this testimonial', 'testimonial' ),
+		'items_list'            => __( 'Testimonials list', 'testimonial' ),
+		'items_list_navigation' => __( 'Testimonials list navigation', 'testimonial' ),
+		'filter_items_list'     => __( 'Filter testimonials list', 'testimonial' ),
+	);
+	$args = array(
+		'label'                 => __( 'Testimonial', 'testimonial' ),
+		'description'           => __( 'A post type for testimonials', 'testimonial' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'trackbacks', 'revisions' ),
+		'taxonomies'            => array( 'category', 'post_tag' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-testimonial',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'post',
+	);
+	register_post_type( 'testimonial', $args );
+
+}
+add_action( 'init', 'testimonial', 0 );
+
+// Register Custom Post Type
+function portfolio() {
+
+	$labels = array(
+		'name'                  => _x( 'Portfolios', 'Post Type General Name', 'portfolio' ),
+		'singular_name'         => _x( 'Portfolio', 'Post Type Singular Name', 'portfolio' ),
+		'menu_name'             => __( 'Portfolio', 'portfolio' ),
+		'name_admin_bar'        => __( 'Portfolio', 'portfolio' ),
+		'archives'              => __( 'Portfolio Archives', 'portfolio' ),
+		'attributes'            => __( 'Portfolio Attributes', 'portfolio' ),
+		'parent_item_colon'     => __( 'Parent Portfolio:', 'portfolio' ),
+		'all_items'             => __( 'All Portfolio Items', 'portfolio' ),
+		'add_new_item'          => __( 'Add New Portfolio Item', 'portfolio' ),
+		'add_new'               => __( 'Add New', 'portfolio' ),
+		'new_item'              => __( 'New Portfolio Item', 'portfolio' ),
+		'edit_item'             => __( 'Edit Portfolio Item', 'portfolio' ),
+		'update_item'           => __( 'Update Portfolio Item', 'portfolio' ),
+		'view_item'             => __( 'View Portfolio Item', 'portfolio' ),
+		'view_items'            => __( 'View Portfolio Items', 'portfolio' ),
+		'search_items'          => __( 'Search Portfolio Item', 'portfolio' ),
+		'not_found'             => __( 'Not found', 'portfolio' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'portfolio' ),
+		'featured_image'        => __( 'Featured Image', 'portfolio' ),
+		'set_featured_image'    => __( 'Set featured image', 'portfolio' ),
+		'remove_featured_image' => __( 'Remove featured image', 'portfolio' ),
+		'use_featured_image'    => __( 'Use as featured image', 'portfolio' ),
+		'insert_into_item'      => __( 'Insert into portfolio item', 'portfolio' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this portfolio item', 'portfolio' ),
+		'items_list'            => __( 'Portfolio Items list', 'portfolio' ),
+		'items_list_navigation' => __( 'Portfolio Items list navigation', 'portfolio' ),
+		'filter_items_list'     => __( 'Filter portfolio list', 'portfolio' ),
+	);
+	$args = array(
+		'label'                 => __( 'Portfolio', 'portfolio' ),
+		'description'           => __( 'A post type for portfolio pieces', 'portfolio' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'trackbacks', 'revisions' ),
+		'taxonomies'            => array( 'category', 'post_tag' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-images-alt2',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'post',
+	);
+	register_post_type( 'portfolio', $args );
+
+}
+add_action( 'init', 'portfolio', 0 );
