@@ -112,14 +112,16 @@ add_action( 'widgets_init', 'dustinleer_widgets_init' );
  * Enqueue scripts and styles.
  */
 function dustinleer_scripts() {
+	// CSS
 	wp_enqueue_style( 'dustinleer-style', get_template_directory_uri() . '/style.min.css', false );
 	
+	// Fonts
 	wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700');
+	wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.5.0/css/all.css' );
 
+	// JS
 	wp_enqueue_script( 'dustinleer-main-scripts', get_template_directory_uri() . '/assets/js/main.min.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'dustinleer-vendor-scripts', get_template_directory_uri() . '/assets/js/vendor.min.js', array(), '20151215', true );
-
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -236,5 +238,79 @@ function is_blog () {
 	}
 	else {
 		return false; 
+	}
+}
+
+function dustinleer_social_array() {
+
+	$social_sites = array(
+		'facebook'      => 'facebook_profile',
+		'twitter'       => 'twitter_profile',
+		'linkedin'      => 'linkedin_profile',
+		'youtube'       => 'youtube_profile',
+		'instagram'     => 'instagram_profile',
+		'github'        => 'github_profile',
+		'codepen'       => 'codepen_profile',
+		'dribbble'      => 'dribbble_profile',
+		// 'spotify'       => 'spotify_profile',
+		// 'google-plus'   => 'googleplus_profile',
+		// 'pinterest'     => 'pinterest_profile',
+		// 'vimeo'         => 'vimeo_profile',
+		// 'tumblr'        => 'tumblr_profile',
+		// 'flickr'        => 'flickr_profile',
+		// 'rss'           => 'rss_profile',
+		// 'reddit'        => 'reddit_profile',
+		// 'soundcloud'    => 'soundcloud_profile',
+		// 'vine'          => 'vine_profile',
+		// 'yahoo'         => 'yahoo_profile',
+		// 'behance'       => 'behance_profile',
+		// 'delicious'     => 'delicious_profile',
+		// 'stumbleupon'   => 'stumbleupon_profile',
+		// 'deviantart'    => 'deviantart_profile',
+		// 'digg'          => 'digg_profile',
+		// 'hacker-news'   => 'hacker-news_profile',
+		// 'steam'         => 'steam_profile',
+		// 'vk'            => 'vk_profile',
+		// 'weibo'         => 'weibo_profile',
+		// 'tencent-weibo' => 'tencent_weibo_profile',
+		// '500px'         => '500px_profile',
+		// 'foursquare'    => 'foursquare_profile',
+		// 'slack'         => 'slack_profile',
+		// 'slideshare'    => 'slideshare_profile',
+		// 'qq'            => 'qq_profile',
+		// 'whatsapp'      => 'whatsapp_profile',
+		// 'skype'         => 'skype_profile',
+		// 'wechat'        => 'wechat_profile',
+		// 'xing'          => 'xing_profile',
+		// 'paypal'        => 'paypal_profile',
+		'email-form'    => 'email_form_profile'
+	);
+
+	return apply_filters( 'dustinleer_social_array_filter', $social_sites );
+}
+
+function dustinleer_social_icons() {
+
+	$social_sites = dustinleer_social_array();
+
+	foreach ( $social_sites as $social_site => $profile ) {
+
+		if ( strlen( get_theme_mod( $social_site ) ) > 0 ) {
+			$active_sites[ $social_site ] = $social_site;
+		}
+	}
+
+	if ( ! empty( $active_sites ) ) {
+
+		echo '<ul class="social-media-icons">';
+		foreach ( $active_sites as $key => $active_site ) { 
+        	$class = 'fab fa-' . $active_site; ?>
+		 	<li>
+				<a class="<?php echo esc_attr( $active_site ); ?>" target="_blank" href="<?php echo esc_url( get_theme_mod( $key ) ); ?>">
+					<i class="<?php echo esc_attr( $class ); ?>" title="<?php echo esc_attr( $active_site ); ?>"></i>
+				</a>
+			</li>
+		<?php } 
+		echo "</ul>";
 	}
 }
