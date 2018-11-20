@@ -59,10 +59,10 @@
 		&:last-child {
 			a {
 				margin-left: 0.5em;
-				@media ( min-width: 400px ) {
+				@media ( min-width: 25em ) { //400px
 					margin-left: 1em;
 				}
-				@media ( min-width: 700px ) {
+				@media ( min-width: 43.75em ) { //700px
 					margin-left: 2em;
 				}				
 			}
@@ -75,10 +75,10 @@
 		color: $white;
 		padding: .75em 0.5em;
 		font-size: 0.8em;
-		@media ( min-width: 400px ) {
+		@media ( min-width: 25em ) { //400px
 			padding: 0.75em 1em;
 		}
-		@media ( min-width: 580px ) {
+		@media ( min-width: 36.25em ) { //580px
 			font-size: 0.9em;
 		}
 		@media ( min-width: 700px ) {
