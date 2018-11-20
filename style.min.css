@@ -164,7 +164,7 @@ a:visited{color:#ec1846}
 .site-info.wrapper a{color:#fff;text-decoration:none}
 .site-info.wrapper a:hover{color:#3d183d}
 .site-info.wrapper>*{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:50%;flex-basis:50%;-ms-flex-line-pack:center;align-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
-.site-info.wrapper .copyright{font-size:.85em;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center;-ms-flex-wrap:wrap;flex-wrap:wrap;padding:1em 0}
+.site-info.wrapper .copyright{font-size:.85em;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center;-ms-flex-wrap:wrap;flex-wrap:wrap;padding:1em 0;font-weight:800}
 .site-info.wrapper .social-media-icons{margin:0;list-style:none;padding:0;font-size:1.5em;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .site-info.wrapper .social-media-icons li{padding:0 .35em}
 .site-info.wrapper .social-media-icons li:first-child{padding-left:0}
