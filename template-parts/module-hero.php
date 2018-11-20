@@ -44,10 +44,12 @@ if (is_blog()) {
 							echo '<img class="hero-image" src="' . $img['sizes']['large'] . '" alt="' . $img['alt'] . '" />';
 							
 							echo '<section class="hero-content">';
-									$title = wp_title( '', false, 'right' );
-									echo '<h1 class="title">' . $title . '</h1>';
-								if ( $content ) {
+								$title = wp_title( '', false, 'right' );
+								echo '<h1 class="title">' . $title . '</h1>';
+								if ( is_home() && ! is_front_page() && $content ) {
 									echo '<p class="sub-title">' . $content . '</p>';
+								} else if (is_single()) {
+
 								}
 								if ( $link ) {
 									echo '<a class="hero-cta cta" href="' . $link['url'] . '" target="' . $link['target'] . '">' . $link['title'] . '</a>';
@@ -107,7 +109,31 @@ if (is_blog()) {
 			}
 
 		}
+	} else {
+		echo '<div class="hero-wrapper">';
+			echo '<section class="hero">'; /*style="background-image: url('. $img["url"] .');">';*/
+				
+				echo '<div class="hero-content-wrapper">';
+					echo '<img class="hero-image" src="/wp-content/uploads/2018/11/hero-dustin-leer-color.png" alt="" />';
+					
+					echo '<section class="hero-content">';
 
+						if ( is_search() ) {
+							echo '<h1 class="title">';
+								/* translators: %s: search query. */
+								printf( esc_html__( 'Search Results for: %s', 'dustinleer' ), '<span>' . get_search_query() . '</span>' );
+							echo '</h1>';
+						} else if ( is_404() ) {
+							echo '<h1 class="title">';
+								esc_html_e( 'Oops! That page can&rsquo;t be found!', 'dustinleer' );
+							echo '</h1>';
+						}
+						
+					echo '</section>';
+				echo '</div>';
+
+			echo '</section>';
+		echo '</div>';
 	}
 }
 
