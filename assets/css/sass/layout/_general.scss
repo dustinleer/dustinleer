@@ -38,3 +38,15 @@
 		}
 	}
 }
+
+a {
+	color: $pink;
+	&:hover,
+	&:focus {
+		@include transition (all, 0.5s, ease);
+		color: $purple;
+	}
+	&:visited {
+		color: $pink;
+	}
+}
