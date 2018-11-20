@@ -32,9 +32,9 @@ function dustinleer_customize_register( $wp_customize ) {
 
 	// section
 	$wp_customize->add_section( 'dustinleer_social_media_icons', array(
-		'title'       => __( 'Social Media Icons', 'tribes' ),
+		'title'       => __( 'Social Media Icons', 'social' ),
 		'priority'    => 25,
-		'description' => __( 'Add the URL for each of your social profiles.', 'tribes' )
+		'description' => __( 'Add the URL for each of your social profiles.', 'social' )
 	) );
 
 	// create a setting and control for each social site
