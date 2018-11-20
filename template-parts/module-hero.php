@@ -54,10 +54,8 @@ if (is_blog()) {
 							echo '<section class="hero-content">';
 								$title = wp_title( '', false, 'right' );
 								echo '<h1 class="title">' . $title . '</h1>';
-								if ( is_home() && ! is_front_page() && $content ) {
+								if ( !is_single() ) {
 									echo '<p class="sub-title">' . $content . '</p>';
-								} else if (is_single()) {
-
 								}
 								if ( $link ) {
 									echo '<a class="hero-cta cta" href="' . $link['url'] . '" target="' . $link['target'] . '">' . $link['title'] . '</a>';
