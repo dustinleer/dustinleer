@@ -11,7 +11,9 @@
 
 <?php
 
-if (is_blog()) { 
+global $post;
+
+if ( is_blog() ) { 
 
 	// set the post ID that you want to use and use it in all
 	// of the function calls where it is needed
@@ -28,7 +30,11 @@ if (is_blog()) {
 
 				// vars
 				$img = get_sub_field( 'pm_hero_image', get_option('page_for_posts') );
-				$featured_img = get_the_post_thumbnail_url( $post_id, 'full', get_option('page_for_posts') );
+				if ( is_single() ) {
+					$featured_img = get_the_post_thumbnail_url( $post->post_id, 'full', get_option('page_for_posts') );
+				} else {
+					$featured_img = get_the_post_thumbnail_url( $post_id, 'full', get_option('page_for_posts') );
+				}
 				// $url = $img['url'];
 				// $title = $img['title'];
 				// $alt = $img['alt'];
@@ -42,7 +48,6 @@ if (is_blog()) {
 					if ( $img_bg ) {
 						echo '<section class="hero" style="background-image: url('. $img_bg["url"] .')">';
 					} else {
-						// echo '<section class="hero no-image-uploaded" style="background-image: url(/wp-content/themes/dustinleer/assets/img/node-mesh-header.svg)">';
 						echo '<section class="hero no-image-uploaded" style="background-image: url('. $featured_img .')">';
 					}
 						
@@ -52,7 +57,11 @@ if (is_blog()) {
 						}
 							
 							echo '<section class="hero-content">';
-								$title = wp_title( '', false, 'right' );
+								if ( is_single() ) {
+									$title = get_the_title( $post->post_id );
+								} else {
+									$title = get_the_title( $post_id );
+								}
 								echo '<h1 class="title">' . $title . '</h1>';
 								if ( !is_single() ) {
 									echo '<p class="sub-title">' . $content . '</p>';
