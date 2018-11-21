@@ -44,7 +44,11 @@ if ( is_blog() ) {
 				$content = get_sub_field( 'pm_hero_content', get_option('page_for_posts') );
 				$link = get_sub_field( 'pm_hero_link', get_option('page_for_posts') );
 
-				echo '<div class="hero-wrapper">';
+				if ( $featured_img ) {
+					echo '<div class="hero-wrapper featured-img">';
+				} else {
+					echo '<div class="hero-wrapper">';
+				}
 					if ( $img_bg ) {
 						echo '<section class="hero" style="background-image: url('. $img_bg["url"] .')">';
 					} else {
@@ -98,7 +102,12 @@ if ( is_blog() ) {
 				$content = get_sub_field( 'pm_hero_content' );
 				$link = get_sub_field( 'pm_hero_link' );
 
-				echo '<div class="hero-wrapper">';
+				if ( $featured_img ) {
+					echo '<div class="hero-wrapper featured-img">';
+				} else {
+					echo '<div class="hero-wrapper">';
+				}
+
 					if ( $img_bg ) {
 						echo '<section class="hero" style="background-image: url('. $img_bg["url"] .')">';
 					} else {

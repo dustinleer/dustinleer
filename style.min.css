@@ -151,6 +151,7 @@ a:visited{color:#ec1846}
 .site-header .main-navigation .menu ul li a:hover:after{background:#fff}
 .site-header .main-navigation button.menu-toggle{display:none}
 .site-header .hero-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;position:relative;z-index:1}
+.site-header .hero-wrapper.featured-img:before{content:'';background:-webkit-gradient(linear,left top,left bottom,from(#ec1846),to(rgba(236,24,70,0)));background:linear-gradient(to bottom,#ec1846 0,rgba(236,24,70,0) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ec1746',endColorstr='#00ec1746',GradientType=0);display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;position:absolute;z-index:1;height:100%;opacity:.5}
 .site-header .hero{width:100%;background:#ec1846;background-repeat:no-repeat;background-position:-90px -520px;max-height:100%;position:relative;overflow:hidden;-webkit-transition:all .5s ease;transition:all .5s ease}
 .site-header .hero.no-image-uploaded{background-position:0 0;background-size:100%;background-blend-mode:darken,luminosity}
 .site-header .hero img.visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;opacity:0}
