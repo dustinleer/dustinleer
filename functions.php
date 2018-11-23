@@ -399,7 +399,7 @@ add_action( 'init', 'testimonial', 0 );
 function portfolio() {
 
 	$labels = array(
-		'name'                  => _x( 'Portfolios', 'Post Type General Name', 'portfolio' ),
+		'name'                  => _x( 'Portfolio', 'Post Type General Name', 'portfolio' ),
 		'singular_name'         => _x( 'Portfolio', 'Post Type Singular Name', 'portfolio' ),
 		'menu_name'             => __( 'Portfolio', 'portfolio' ),
 		'name_admin_bar'        => __( 'Portfolio', 'portfolio' ),
