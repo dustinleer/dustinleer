@@ -451,3 +451,71 @@ function portfolio() {
 
 }
 add_action( 'init', 'portfolio', 0 );
+
+// Code for themes
+add_action( 'after_switch_theme', 'flush_rewrite_rules' );
+
+// Code for plugins
+register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
+register_activation_hook( __FILE__, 'myplugin_flush_rewrites' );
+function myplugin_flush_rewrites() {
+	// call your CPT registration function here (it should also be hooked into 'init')
+	myplugin_custom_post_types_registration();
+	flush_rewrite_rules();
+}
+
+/**
+ * Limit excerpt to a number of characters without cutting last word
+ * 
+ * @param string $excerpt
+ * @return string
+ */
+function custom_short_excerpt($excerpt){
+	$limit = 100;
+
+	if (strlen($excerpt) > $limit) {
+		return substr($excerpt, 0, strpos($excerpt, ' ', $limit));
+	}
+
+	return $excerpt;
+}
+
+add_filter('the_excerpt', 'short_excerpt');
+
+function short_excerpt($excerpt){
+	$limit = 140;
+
+	if (strlen($excerpt) > $limit) {
+		return substr($excerpt, 0, strpos($excerpt, ' ', $limit));
+	}
+
+	return $excerpt;
+}
+
+add_filter('the_excerpt', 'short_excerpt');
+
+function testimonial_archive_template_query( $query ) {
+    
+    /* only proceed on the front end */
+    if( is_admin() ) {
+	    return;
+    }
+    
+    /* only on the person post archive for the main query */
+    if ( $query->is_post_type_archive( 'testimonial' ) || $query->is_post_type_archive( 'testimonial' ) && $query->is_main_query() ) {
+		
+		// $taxquery = array(
+		// 	array(
+		// 		'post_per_page' => -1,
+		// 		'order'			=> DESC;
+		// 	)
+		// );
+		// $query->set( 'tax_query', $taxquery );
+
+        $query->set( 'posts_per_page', -1 );
+        $query->set( 'orderby', 'rand' );
+        
+    }
+    
+}
+add_action( 'pre_get_posts', 'testimonial_archive_template_query' );
