@@ -1,14 +1,26 @@
 .site {
 	&-footer {
-		background: $pink;
 		display: flex;
 		flex-basis: 100%;
+		flex-wrap: wrap;
 		position: relative;
+		justify-content: center;
 		z-index: 9;
 		height: 100%;
 		box-sizing: border-box;
-		color: #fff;
+		color: $white;
 		padding: 2em 0;
+		background: url('/wp-content/themes/dustinleer/assets/img/node-mesh-footer.svg');
+		background-repeat: no-repeat;
+		background-position: center -150px;
+		background-color: $pink;
+		// background-size: 200%;
+		&.no-testimonial {
+			background-position: left top;
+			@media ( min-width: 28.125em ) { // 450px
+				background-position: left bottom;
+			}
+		}
 	}
 	&-info.wrapper {
 		display: flex;
@@ -84,5 +96,90 @@
 				}
 			}
 		}		
+	}
+	.testimonial-container {
+		display: flex;
+		flex-basis: 100%;
+		justify-content: center;
+		padding-bottom: 3em;
+		.testimonials.wrapper {
+			display: flex;
+			flex-basis: 100%;
+			flex-wrap: nowrap;
+			width: 100%;
+			max-width: 1200px;
+			padding: 0 1em;
+			> * {
+				flex-basis: 100%;
+				flex-wrap: wrap;
+				justify-content: center;
+				text-align: center;
+			}
+			.testimonial {
+				margin: 2em;
+				img {
+					max-width: 185px;
+					border: 5px solid $white;
+					border-radius: 50%;
+					margin: 1em;
+				}
+				h3 {
+					margin: 0;
+				}
+				a {
+					color: $purple;
+					text-decoration: none;
+					font-weight: $bold;
+					&:hover,
+					&:focus {
+						color: $white;
+					}
+				}
+				&:first-child {
+					margin-left: 0;
+				}
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+			.bubble {
+				background: $white;
+				color: #404040;
+				border-radius: 10px;
+				padding: 1.5em;
+				position: relative;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				margin-bottom: 1em;
+				p {
+					margin-top: 0;
+				}
+				a {
+					color: $pink;
+					font-weight: $normal;
+					border-bottom: 2px solid $pink;
+					&:hover,
+					&:focus {
+						color: $purple;
+						border-color: $purple;
+					}
+				}
+				&:after {
+					content: '';
+					background: $white;
+					position: absolute;
+					bottom: -13px;
+					left: 0;
+					width: 2em;
+					height: 2em;
+					border-radius: 5px;
+					transform: rotate(45deg);
+					display: block;
+					right: 0;
+					margin: auto;
+				}
+			}
+		}
 	}
 }
