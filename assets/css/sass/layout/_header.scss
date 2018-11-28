@@ -163,7 +163,7 @@
 		}
 		&.no-image-uploaded {
 			background-position: 0;
-			background-size: 100%;
+			background-size: cover;
 			background-blend-mode: darken, luminosity;
 		}
 		img.visually-hidden {
@@ -254,6 +254,7 @@
 				font-weight: $bold;
 				font-size: 1.5em;
 				margin: 0;
+				flex-basis: 100%;
 				@media ( min-width: 43.75em ) { //700px
 					font-size: 2.5em;
 				}
