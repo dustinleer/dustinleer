@@ -121,17 +121,83 @@
 
 	.site-main & {
 		margin: 0 0 1.5em;
+		padding: 0 1em;
 		overflow: hidden;
 	}
 
+	.nav-previous a:before,
+	.nav-previous a:after,
+	.nav-next a:before,
+	.nav-next a:after {
+		content: '';
+		position: absolute;
+		width: 9px;
+		height: 2px;
+		background: $pink;
+		border-radius: 5px;
+		left: 0;
+		@include transition(all, 0.5s, ease-out);
+	}
+	
+	.nav-previous a:hover:before,
+	.nav-previous a:hover:after,
+	.nav-next a:hover:before,
+	.nav-next a:hover:after {
+		background: $purple;
+	}
+
 	.nav-previous {
-		float: left;
-		width: 50%;
+		width: 100%;
+		float: none;
+		text-align: center;
+		padding-bottom: 1em;
+		@media ( min-width: 31.25em ) { //500px
+			width: 50%;
+			float: left;
+			padding: 0;
+			text-align: left;
+		}
+		a {
+			padding-left: 1em;
+			position: relative;
+			&:before {
+				top: 6px;
+				transform: rotate(-45deg);
+			}
+			&:after {
+				bottom: 6px;
+				transform: rotate(45deg);
+			}
+		}
 	}
 
 	.nav-next {
-		float: right;
-		text-align: right;
-		width: 50%;
+		width: 100%;
+		float: none;
+		text-align: center;
+		padding-top: 1em;
+		@media ( min-width: 31.25em ) { //500px
+			width: 50%;
+			text-align: right;
+			float: right;
+			padding: 0;
+		}
+		a {
+			padding-right: 1em;
+			position: relative;
+			&:before,
+			&:after {
+				left: auto;
+				right: 0;
+			}
+			&:before {
+				top: 6px;
+				transform: rotate(45deg);
+			}
+			&:after {
+				bottom: 6px;
+				transform: rotate(-45deg);
+			}
+		}
 	}
 }
