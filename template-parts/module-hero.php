@@ -18,7 +18,7 @@ if ( is_blog() ) {
 	// set the post ID that you want to use and use it in all
 	// of the function calls where it is needed
 	// and make sure it's an integer value
-	$post_id = intval(get_option('page_for_posts'));
+	$post_id = intval( get_option( 'page_for_posts' ) );
 
 	if( have_rows( 'page_modules', $post_id ) ) {
 
@@ -30,11 +30,34 @@ if ( is_blog() ) {
 
 				// vars
 				$img = get_sub_field( 'pm_hero_image', get_option('page_for_posts') );
+				$img_testimonial = get_field('testimonial_hero', 'option');
+				$feat_img = get_field( 'header_image' );
+				$img_portfolio = get_field('portfolio_hero', 'option');
+
+				// var_dump($feat_img);
+
 				if ( is_single() ) {
 					$featured_img = get_the_post_thumbnail_url( $post->post_id, 'full', get_option('page_for_posts') );
+				} else if ( is_post_type_archive( 'testimonial' ) ) {
+					$featured_img = $img_testimonial['url'];
+				} else if ( is_singular( 'testimonial' ) ) {
+					$featured_img = $feat_img['url'];
+					echo 'FED';
+				} else if ( is_post_type_archive( 'portfolio' ) ) {
+					$featured_img = $img_portfolio['url'];
 				} else {
 					$featured_img = get_the_post_thumbnail_url( $post_id, 'full', get_option('page_for_posts') );
 				}
+
+				if ( is_singular( 'testimonial' ) ) {
+					// Defaults to global hero image
+					$featured_img = $img_testimonial['url'];
+				} else if ( is_singular( 'portfolio' ) ) {
+					// Defaults to global hero image
+					// $featured_img = $img_portfolio['url'];
+				}
+				
+				
 				// $url = $img['url'];
 				// $title = $img['title'];
 				// $alt = $img['alt'];
@@ -63,13 +86,24 @@ if ( is_blog() ) {
 							echo '<section class="hero-content">';
 								if ( is_single() ) {
 									$title = get_the_title( $post->post_id );
+								} else if ( is_archive() ) {
+									$title = post_type_archive_title( '', false );
 								} else {
 									$title = get_the_title( $post_id );
 								}
 								echo '<h1 class="title">' . $title . '</h1>';
-								if ( !is_single() ) {
+								
+								if ( is_single() ) {
+								} else if ( is_post_type_archive( 'testimonial' ) ) {
+									$content = get_field('testimonial_content', 'option');
+									echo '<p class="sub-title">' . $content . '</p>';
+								} else if ( is_post_type_archive( 'portfolio' ) ) {
+									$content = get_field('portfolio_content', 'option');
+									echo '<p class="sub-title">' . $content . '</p>';
+								} else {
 									echo '<p class="sub-title">' . $content . '</p>';
 								}
+
 								if ( $link ) {
 									echo '<a class="hero-cta cta" href="' . $link['url'] . '" target="' . $link['target'] . '">' . $link['title'] . '</a>';
 								}
@@ -140,8 +174,7 @@ if ( is_blog() ) {
 		}
 	} else {
 		echo '<div class="hero-wrapper">';
-			echo '<section class="hero">'; /*style="background-image: url('. $img["url"] .');">';*/
-				
+			echo '<section class="hero" style="background-image: url(/wp-content/themes/dustinleer/assets/img/node-mesh-header.svg);">';
 				echo '<div class="hero-content-wrapper">';
 					echo '<img class="hero-image" src="/wp-content/uploads/2018/11/hero-dustin-leer-color.png" alt="" />';
 					
