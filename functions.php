@@ -114,14 +114,18 @@ add_action( 'widgets_init', 'dustinleer_widgets_init' );
 function dustinleer_scripts() {
 	// CSS
 	wp_enqueue_style( 'dustinleer-style', get_template_directory_uri() . '/style.min.css', false );
+	wp_enqueue_style( 'fancybox-style', 'https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css' );
 	
 	// Fonts
-	wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700');
+	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700' );
 	wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.5.0/css/all.css' );
 
 	// JS
+	// wp_register_script('jquery', 'https://code.jquery.com/jquery-3.3.1.min.js', false, '3.3.1');
+	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'dustinleer-main-scripts', get_template_directory_uri() . '/assets/js/main.min.js', array(), '20151215', true );
 	wp_enqueue_script( 'dustinleer-vendor-scripts', get_template_directory_uri() . '/assets/js/vendor.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'fancybox-script', 'https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js', array('jquery'), '3.5.2', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -502,7 +506,7 @@ function testimonial_archive_template_query( $query ) {
     }
     
     /* only on the person post archive for the main query */
-    if ( $query->is_post_type_archive( 'testimonial' ) || $query->is_post_type_archive( 'testimonial' ) && $query->is_main_query() ) {
+    if ( $query->is_post_type_archive( 'testimonial' ) && $query->is_main_query() ) {
 		
 		// $taxquery = array(
 		// 	array(
@@ -518,4 +522,31 @@ function testimonial_archive_template_query( $query ) {
     }
     
 }
-add_action( 'pre_get_posts', 'testimonial_archive_template_query' );
+add_action( 'pre_get_posts', 'portfolio_archive_template_query' );
+
+function portfolio_archive_template_query( $query ) {
+    
+    /* only proceed on the front end */
+    if( is_admin() ) {
+	    return;
+    }
+    
+    /* only on the person post archive for the main query */
+    if ( $query->is_post_type_archive( 'portfolio' ) && $query->is_main_query() ) {
+		
+		// $taxquery = array(
+		// 	array(
+		// 		'post_per_page' => -1,
+		// 		'order'			=> DESC;
+		// 	)
+		// );
+		// $query->set( 'tax_query', $taxquery );
+
+        $query->set( 'posts_per_page', -1 );
+        // $query->set( 'orderby', 'rand' );
+        
+    }
+    
+}
+add_action( 'pre_get_posts', 'portfolio_archive_template_query' );
+
