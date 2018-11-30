@@ -31,14 +31,13 @@ get_header(); ?>
 						*/
 						get_template_part( 'template-parts/content-testimonial', get_post_format() );
 
-					// the_posts_navigation();
-
 				else :
 
 					get_template_part( 'template-parts/content', 'none' );
 
 				endif; ?>
 			</div>
+			<?php // the_posts_navigation(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
