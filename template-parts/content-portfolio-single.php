@@ -68,7 +68,7 @@
                 echo '<ul>';
                     foreach( $images as $image ) {
                         echo '<li>';
-                            echo '<a data-fancybox="gallery" href="'. $image['url'] .'">';
+                            echo '<a data-fancybox="gallery" data-caption="' . $image['alt'] . '" href="'. $image['url'] .'">';
                             // echo wp_get_attachment_image( $image['ID'], $size );
                                 echo '<img src="' . $image['sizes']['large'] . '" alt="' . $image['alt'] . '" />';
                             echo '</a>';
