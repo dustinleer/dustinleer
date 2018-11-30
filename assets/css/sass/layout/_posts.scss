@@ -1,0 +1,226 @@
+.post-type {
+	&-archive {
+		.content-area {
+			.wrapper {
+				display: flex;
+				justify-content: start;
+				article {
+					justify-content: center;
+					&.testimonial {
+						flex-basis: 100%;
+						display: flex;
+						flex-wrap: wrap;
+						align-content: flex-start;
+						justify-content: center;
+						background: $gray;
+						margin: 1em 0;
+						padding: 1em;
+						border-radius: 5px;
+						position: relative;
+						text-align: center;
+						@media ( min-width: 620px ) {
+							flex-basis: 47%;
+							margin: 1em;
+							&:nth-child(odd) {
+								margin-right: 0;
+							}
+							&:nth-child(even) {
+								margin-left: 0;
+							}
+						}
+						@media ( min-width: 1020px ) {
+							flex-basis: 31%;
+							&:nth-child(odd) {
+								margin-right: 1em;
+							}
+							&:nth-child(even) {
+								margin-left: 1em;
+							}
+							&[data-attribute="1"],
+							&[data-attribute="4"],
+							&[data-attribute="7"],
+							&[data-attribute="10"],
+							&[data-attribute="13"],
+							&[data-attribute="16"],
+							&[data-attribute="19"], {
+								margin-left: 0;
+							}
+							&[data-attribute="3"],
+							&[data-attribute="6"],
+							&[data-attribute="9"],
+							&[data-attribute="12"],
+							&[data-attribute="15"],
+							&[data-attribute="18"],
+							&[data-attribute="21"] {
+								margin-right: 0;
+							}
+						}
+						header {
+							flex-basis: 100%;
+							&.page-header {
+								flex-basis: 100%;
+								justify-content: center;
+								text-align: center;
+							}
+							h2.entry-title {
+								margin: 0;
+							}
+						}
+						img {
+							width: 125px;
+							height: 125px;
+							border-radius: 50%;
+							position: relative;
+							top: -25px;
+							border: 5px solid $purple;
+						}
+						.entry-content {
+							margin: 1.5em 0;
+							p {
+								margin-top: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+		&-portfolio {
+			&.logged-in {
+				.entry-footer {
+					padding: 2em 0;
+				}
+			}
+			.content-area {
+				margin-bottom: 0;
+				.portfolio-archive-header {
+					display: flex;
+					flex-basis: 100%;
+					justify-content: center;
+					text-align: center;
+					margin: 2em 0;
+					div {
+						max-width: 860px;
+					}
+				}
+				article.portfolio {
+					display: flex;
+					flex-wrap: wrap;
+					flex-direction: row;
+					margin: 0;
+					background-color: $gray;
+					@media (min-width: 980px) {
+						flex-wrap: nowrap;
+						&:nth-child(even) {
+							.left {
+								order: 2;
+							}
+							.right {
+								order: 1;
+							}
+						}
+					}
+					section {
+						padding: 2em;
+						margin: 0;
+						align-self: center;
+						&.left,
+						&.right {
+							width: 100%;
+							@media (min-width: 980px) {
+								width: 50%;
+							}
+						}
+						&.left {
+							background-size: cover;
+							background-repeat: no-repeat;
+							img {
+								opacity: 0;
+								visibility: hidden;
+							}
+						}
+						&.right {
+							.right-inner {
+								max-width: 80%;
+								display: block;
+								margin: 0 auto;
+							}
+						}
+					}
+				}
+			}
+		}
+		a.button {
+			background: $purple;
+			color: $white;
+			text-decoration: none;
+			padding: 0.75em 1em;
+			border-radius: 5em;
+			&:hover,
+			&:focus {
+				background: $pink;
+			}
+		}
+	}
+}
+
+// Single Page Styles
+
+.single {
+	&-testimonial {
+		.content-area {
+			.wrapper {
+				article {
+					justify-content: center;
+					.entry-header,
+					.entry-content,
+					.entry-footer {
+						max-width: 860px;
+						flex-basis: 100%;
+					}
+					.entry-content {
+						margin: 0;
+					}
+					.content-img {
+						position: absolute;
+						top: -140px;
+						max-width: 150px;
+						border-radius: 50%;
+						border: 5px solid $white;
+					}
+				}
+			}
+		}
+	}
+	&-portfolio {
+		h3.services {
+			margin-bottom: 0;
+			+ p {
+				margin-top: 0.25em;
+			}
+		}
+		article.portfolio {
+			.gallery {
+				display: flex;
+				flex-direction: row;
+				flex-basis: 100%;
+				ul {
+					list-style: none;
+					display: flex;
+					flex-basis: 100%;
+					justify-content: center;
+					flex-wrap: wrap;
+					margin: 0;
+					padding: 0;
+					li {
+						max-width: 350px;
+						img {
+							height: 100%;
+							max-height: 225px;
+							padding: 2px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
