@@ -3,6 +3,12 @@
 	word-break: break-all;
 }
 
+body {
+	.fancybox-container {
+		z-index: 99999;
+	}
+}
+
 .visuallyhidden {
 	position: absolute;
 	overflow: hidden;
@@ -17,6 +23,7 @@
 a.back {
 	position: relative;
 	padding-left: 1em;
+	flex-basis: 100%;
 	&:before,
 	&:after {
 		content: '';
@@ -68,6 +75,7 @@ a.back {
 	position: relative;
 	z-index: 9;
 	margin: 2em 0;
+	flex-wrap: wrap;
 	.wrapper {
 		max-width: 1200px;
 		display: flex;
