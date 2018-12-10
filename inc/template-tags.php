@@ -7,36 +7,41 @@
  * @package Dustin_Leer
  */
 
-if ( ! function_exists( 'dustinleer_posted_on' ) ) :
-/**
- * Prints HTML with meta information for the current post-date/time and author.
- */
-function dustinleer_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-	}
 
-	$time_string = sprintf( $time_string,
+if ( ! function_exists( 'dustinleer_posted_on' ) ) :
+	/**
+	 * Prints HTML with meta information for the current post-date/time and author.
+	 */
+	function dustinleer_posted_on() {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		}
+		
+		$time_string = sprintf( $time_string,
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( get_the_date() ),
 		esc_attr( get_the_modified_date( 'c' ) ),
 		esc_html( get_the_modified_date() )
 	);
-
+	
 	$posted_on = sprintf(
 		/* translators: %s: post date. */
-		esc_html_x( 'Posted on %s', 'post date', 'dustinleer' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		'<i class="far fa-calendar-alt"></i> ' . esc_html_x( 'Posted on %s', 'post date', 'dustinleer' ),
+		'<span>' . $time_string . '</span>'
 	);
-
+	
+	$authorName = get_the_author_meta('user_firstname');
+	$authorID = get_the_author_meta( 'ID' );
+	$authorImg = get_avatar_url( $authorID );
+	
 	$byline = sprintf(
 		/* translators: %s: post author. */
-		esc_html_x( 'by %s', 'post author', 'dustinleer' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		esc_html_x( 'Written by %s', 'post author', 'dustinleer' ),
+		'<span class="author vcard"><strong class="author-name">' . esc_html( get_the_author() ) . '</strong></span><img class="post-avatar" src="' . ($authorImg) . '" />'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+	echo '<span class="meta-wrap">' . $posted_on . '</span><span class="meta-author"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
 }
 endif;
@@ -52,14 +57,14 @@ function dustinleer_entry_footer() {
 		$categories_list = get_the_category_list( esc_html__( ', ', 'dustinleer' ) );
 		if ( $categories_list && dustinleer_categorized_blog() ) {
 			/* translators: 1: list of categories. */
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'dustinleer' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<i class="fas fa-archive"></i><span class="cat-links">' . esc_html__( '%1$s', 'dustinleer' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'dustinleer' ) );
 		if ( $tags_list ) {
 			/* translators: 1: list of tags. */
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'dustinleer' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<i class="fas fa-tags"></i><span class="tags-links">' . esc_html__( '%1$s', 'dustinleer' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 
