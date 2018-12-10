@@ -182,17 +182,17 @@ if( function_exists('acf_add_options_page') ) {
 		'redirect'		=> false
 	));
 	
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Theme Header Settings',
-		'menu_title'	=> 'Header',
-		'parent_slug'	=> 'theme-general-settings',
-	));
+	// acf_add_options_sub_page(array(
+	// 	'page_title' 	=> 'Theme Header Settings',
+	// 	'menu_title'	=> 'Header',
+	// 	'parent_slug'	=> 'theme-general-settings',
+	// ));
 	
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Theme Footer Settings',
-		'menu_title'	=> 'Footer',
-		'parent_slug'	=> 'theme-general-settings',
-	));
+	// acf_add_options_sub_page(array(
+	// 	'page_title' 	=> 'Theme Footer Settings',
+	// 	'menu_title'	=> 'Footer',
+	// 	'parent_slug'	=> 'theme-general-settings',
+	// ));
 	
 }
 
@@ -390,7 +390,7 @@ function testimonial() {
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
 		'has_archive'           => true,
-		'exclude_from_search'   => false,
+		'exclude_from_search'   => true,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
 	);
@@ -447,7 +447,7 @@ function portfolio() {
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
 		'has_archive'           => true,
-		'exclude_from_search'   => false,
+		'exclude_from_search'   => true,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
 	);
@@ -474,29 +474,40 @@ function myplugin_flush_rewrites() {
  * @param string $excerpt
  * @return string
  */
-function custom_short_excerpt($excerpt){
+function custom_short_excerpt( $excerpt ){
 	$limit = 100;
 
-	if (strlen($excerpt) > $limit) {
-		return substr($excerpt, 0, strpos($excerpt, ' ', $limit));
+	if ( strlen( $excerpt ) > $limit ) {
+		return substr( $excerpt, 0, strpos( $excerpt, ' ', $limit ) );
 	}
 
 	return $excerpt;
 }
+add_filter('the_excerpt', 'custom_short_excerpt');
 
-add_filter('the_excerpt', 'short_excerpt');
-
-function short_excerpt($excerpt){
+function short_excerpt( $excerpt ){
 	$limit = 140;
 
-	if (strlen($excerpt) > $limit) {
-		return substr($excerpt, 0, strpos($excerpt, ' ', $limit));
+	if ( strlen( $excerpt ) > $limit ) {
+		return substr( $excerpt, 0, strpos( $excerpt, ' ', $limit) );
 	}
 
 	return $excerpt;
 }
-
 add_filter('the_excerpt', 'short_excerpt');
+
+function longer_excerpts( $excerpt ) {
+	$limit = 500;
+
+	if ( strlen( $excerpt ) > $limit ) {
+		return substr( $excerpt, 0, strpos( $excerpt, ' ', $limit ) );
+	}
+
+	return $excerpt;
+}
+// "999" priority makes this run last of all the functions hooked to this filter, meaning it overrides them
+add_filter( 'excerpt_length', 'longer_excerpts', 999 );
+
 
 function testimonial_archive_template_query( $query ) {
     
@@ -507,14 +518,6 @@ function testimonial_archive_template_query( $query ) {
     
     /* only on the person post archive for the main query */
     if ( $query->is_post_type_archive( 'testimonial' ) && $query->is_main_query() ) {
-		
-		// $taxquery = array(
-		// 	array(
-		// 		'post_per_page' => -1,
-		// 		'order'			=> DESC;
-		// 	)
-		// );
-		// $query->set( 'tax_query', $taxquery );
 
         $query->set( 'posts_per_page', -1 );
         $query->set( 'orderby', 'rand' );
@@ -522,7 +525,7 @@ function testimonial_archive_template_query( $query ) {
     }
     
 }
-add_action( 'pre_get_posts', 'portfolio_archive_template_query' );
+add_action( 'pre_get_posts', 'testimonial_archive_template_query' );
 
 function portfolio_archive_template_query( $query ) {
     
@@ -550,3 +553,33 @@ function portfolio_archive_template_query( $query ) {
 }
 add_action( 'pre_get_posts', 'portfolio_archive_template_query' );
 
+// Adds Body class of page slug
+function add_slug_body_class( $classes ) {
+	global $post;
+	
+	if ( isset( $post ) ) {
+		$classes[] = $post->post_type . '-' . $post->post_name;
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', 'add_slug_body_class' );
+
+// Custom Reply for comments
+// function dustinleer_comment_reply_text( $link ) {
+// 	$link = str_replace( 'Reply', 'Respond<i class="fas fa-reply"></i>', $link );
+// 	return $link;
+// }
+// add_filter( 'comment_reply_link', 'dustinleer_comment_reply_text' );
+
+
+//Exclude pages from WordPress Search
+if (!is_admin()) {
+	function wpb_search_filter($query) {
+		if ($query->is_search) {
+			$query->set('post_type', 'post');
+		}
+		return $query;
+	}
+	add_filter('pre_get_posts','wpb_search_filter');
+}
