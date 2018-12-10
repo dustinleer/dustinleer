@@ -66,6 +66,7 @@ if ( is_blog() ) {
 				$header = get_sub_field( 'pm_hero_header', get_option('page_for_posts') );
 				$content = get_sub_field( 'pm_hero_content', get_option('page_for_posts') );
 				$link = get_sub_field( 'pm_hero_link', get_option('page_for_posts') );
+				$img_bg = '';
 
 				if ( $featured_img ) {
 					echo '<div class="hero-wrapper featured-img">';
@@ -82,11 +83,15 @@ if ( is_blog() ) {
 						if ( $img_bg ) {
 							echo '<img class="hero-image" src="' . $img['sizes']['large'] . '" alt="' . $img['alt'] . '" />';
 						}
-							
+						
 							echo '<section class="hero-content">';
 								if ( is_single() ) {
 									$title = get_the_title( $post->post_id );
 								} else if ( is_archive() ) {
+									$title = single_cat_title( 'Posts on: ', false );
+								} else if ( is_tag() ) {
+									$title = single_tag_title( 'Posts on: ', false );
+								} else if ( is_post_type_archive() ) {
 									$title = post_type_archive_title( '', false );
 								} else {
 									$title = get_the_title( $post_id );
@@ -94,6 +99,10 @@ if ( is_blog() ) {
 								echo '<h1 class="title">' . $title . '</h1>';
 								
 								if ( is_single() ) {
+								} else if ( is_archive() || is_tag() ) {
+									$content = get_field('generic_content', 'option');
+									$addition_content = single_cat_title( '', false );
+									echo '<p class="sub-title">' . $content . ' &ldquo;' . $addition_content . '&rdquo;.</p>';
 								} else if ( is_post_type_archive( 'testimonial' ) ) {
 									$content = get_field('testimonial_content', 'option');
 									echo '<p class="sub-title">' . $content . '</p>';
@@ -130,7 +139,7 @@ if ( is_blog() ) {
 				// vars
 				$img = get_sub_field( 'pm_hero_image' );
 				$img_bg = get_sub_field( 'pm_background_image' );
-				$featured_img = get_the_post_thumbnail_url( $post_id, 'full' );
+				$featured_img = get_the_post_thumbnail_url( $post, 'full' );
 
 				$header = get_sub_field( 'pm_hero_header' );
 				$content = get_sub_field( 'pm_hero_content' );
@@ -183,12 +192,15 @@ if ( is_blog() ) {
 						if ( is_search() ) {
 							echo '<h1 class="title">';
 								/* translators: %s: search query. */
-								printf( esc_html__( 'Search Results for: %s', 'dustinleer' ), '<span>' . get_search_query() . '</span>' );
+								printf( esc_html__( 'Search Results for: %s', 'dustinleer' ), '<span>&ldquo;' . get_search_query() . '&rdquo;</span>' );
 							echo '</h1>';
 						} else if ( is_404() ) {
 							echo '<h1 class="title">';
-								esc_html_e( 'Oops! That page can&rsquo;t be found!', 'dustinleer' );
+								esc_html_e( 'UH OH! That there is a 404 error! 🤷🏻‍♂️', 'dustinleer' );
 							echo '</h1>';
+							echo '<p class="sub-title">';
+								esc_html_e( 'Some sort of internet spirit must have taken this page!', "dustinleer" );
+							echo '</p>';
 						}
 						
 					echo '</section>';
