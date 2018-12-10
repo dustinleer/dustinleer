@@ -60,23 +60,49 @@
     </div><!-- .entry-content -->
     
     <?php
-        $images = get_field( 'image_gallery' );
-        $size = 'full'; // (thumbnail, medium, large, full or custom size)
 
-        if( $images ) {
-            echo '<div class="gallery">';
-                echo '<ul>';
-                    foreach( $images as $image ) {
-                        echo '<li>';
-                            echo '<a data-fancybox="gallery" data-caption="' . $image['alt'] . '" href="'. $image['url'] .'">';
-                            // echo wp_get_attachment_image( $image['ID'], $size );
-                                echo '<img src="' . $image['sizes']['large'] . '" alt="' . $image['alt'] . '" />';
-                            echo '</a>';
-                        echo '</li>';
+            // check if the flexible content field has rows of data
+            if( have_rows('portfolio_modules') ){
+                
+                // loop through the rows of data
+                while ( have_rows('portfolio_modules') ) {
+                the_row();
+                
+                if( get_row_layout() == 'gallery' ) {
+
+                    
+                    $images = get_sub_field( 'image_gallery' );
+                    $size = 'full'; // (thumbnail, medium, large, full or custom size)
+                    
+                    if( $images ) {
+                        echo '<div class="gallery">';
+                            echo '<ul>';
+                                foreach( $images as $image ) {
+                                    echo '<li>';
+                                        echo '<a class="img-box" data-fancybox="gallery" data-caption="' . $image['alt'] . '" href="'. $image['url'] .'">';
+                                        // echo wp_get_attachment_image( $image['ID'], $size );
+                                            echo '<img src="' . $image['sizes']['large'] . '" alt="' . $image['alt'] . '" />';
+                                        echo '</a>';
+                                    echo '</li>';
+                                }
+                            echo '</ul>';
+                        echo '</div>';
                     }
-                echo '</ul>';
-            echo '</div>';
+                    
+                } if ( get_row_layout() == 'content' ) {
+                    $content = get_sub_field( 'additional_content' );
+                    echo $content;
+                }
+
+            }
+
+        } else {
+
+            // no layouts found
+
         }
+
+        
 
     ?>
 
