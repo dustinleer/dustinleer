@@ -1,3 +1,74 @@
+.blog,
+.search,
+.archive.category {
+	header.entry-header {
+		flex-basis: 100%;
+		flex-wrap: wrap;
+		h2.entry-title {
+			flex-basis: 100%;
+		}
+	}
+	img.center.hidden.wp-post-image {
+		visibility: hidden;
+		display: flex;
+		flex-basis: 100%
+	}
+	.blog-post-featured {
+		background-size: cover;
+		max-height: 500px;
+		border-radius: 5px;
+        background-position: center;
+        overflow: hidden;
+	}
+}
+
+.blog,
+.search,
+.single,
+.archive.category {
+	.entry-meta {
+		display: flex;
+		flex-basis: 100%;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		@media ( min-width: 650px ) {
+			flex-wrap: nowrap;
+		}
+		.post-avatar {
+			border-radius: 50%;
+			max-width: 60px;
+			max-height: 60px;
+			margin-left: 0.5em;
+		}
+		.meta {
+			&-wrap {
+				margin-bottom: 0.5em;
+				@media ( min-width: 650px ) {
+					margin-bottom: 0;
+					justify-content: flex-start;
+					text-align: left;
+				}
+			}
+			&-author {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				@media ( min-width: 650px ) {
+					justify-content: flex-end;
+				}
+			}
+		}
+		> * {
+			flex-basis: 100%;
+			text-align: center;
+		}
+		.author-name {
+			margin-left: 0.35em;
+		}
+	}
+}
+
 .post-type {
 	&-archive {
 		.content-area {
@@ -66,12 +137,14 @@
 								margin: 0;
 							}
 						}
-						img {
+						.img-wrap {
 							width: 125px;
 							height: 125px;
-							border-radius: 50%;
 							position: relative;
 							top: -25px;
+						}
+						img {
+							border-radius: 50%;
 							border: 5px solid $purple;
 						}
 						.entry-content {
@@ -133,6 +206,7 @@
 						&.left {
 							background-size: cover;
 							background-repeat: no-repeat;
+							padding: 0;
 							img {
 								opacity: 0;
 								visibility: hidden;
@@ -149,22 +223,10 @@
 				}
 			}
 		}
-		a.button {
-			background: $purple;
-			color: $white;
-			text-decoration: none;
-			padding: 0.75em 1em;
-			border-radius: 5em;
-			&:hover,
-			&:focus {
-				background: $pink;
-			}
-		}
 	}
 }
 
 // Single Page Styles
-
 .single {
 	&-testimonial {
 		.content-area {
@@ -213,10 +275,24 @@
 					padding: 0;
 					li {
 						max-width: 350px;
+						margin: 5px;
+						a {
+							border: 3px solid transparent;
+							display: block;
+							overflow: hidden;
+							&:hover {
+								border-color: $purple;
+							}
+						}
 						img {
+							padding: 0;
+							margin: 0;
+						}
+						a, img {
 							height: 100%;
+							width: 100%;
 							max-height: 225px;
-							padding: 2px;
+							max-width: 350px;
 						}
 					}
 				}
