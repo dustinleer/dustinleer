@@ -16,16 +16,18 @@ $post_count = 1;
 /* Start the Loop */
 while ( have_posts() ) : the_post();
 
-    $featured_img = get_the_post_thumbnail_url( $post_id, 'full' );
+    $featured_img = get_the_post_thumbnail_url( $post, 'full' );
     $excerpt = get_the_excerpt();
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-attribute="<?php echo $post_count; ?>">
                             
     <?php
         echo '<section class="left" style="background-image: url('. $featured_img .')">';
-            echo '<img class="" src="' . $featured_img . '" />';
-    
+            echo '<a class="cover-link" href="' . esc_url( get_permalink() ) . '">';
+                echo '<img class="" src="' . $featured_img . '" />';
+            echo '</a>';
         echo '</section>';
     ?>
 
