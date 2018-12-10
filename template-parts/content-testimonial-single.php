@@ -17,7 +17,7 @@
 	$excerpt = get_the_excerpt();
 	
 	if ( $img ) {
-		echo '<img class="content-img" src="' . $img_url . '" width="' . $img['1'] . '" height="' . $img['2'] . '" alt="' . $img_alt . '" />';
+		echo '<img class="content-img" src="' . $img_url . '" width="' . $img['width'] . '" height="' . $img['height'] . '" alt="' . $img_alt . '" />';
 	}
 ?>
 	<header class="entry-header">

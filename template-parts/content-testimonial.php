@@ -25,7 +25,9 @@
 			$excerpt = get_the_excerpt();
 			
 			if ( $img ) {
-				echo '<img src="' . $img_url . '" width="' . $img['1'] . '" height="' . $img['2'] . '" alt="' . $img_alt . '" />';
+				echo '<a class="img-wrap" href="' . esc_url( get_permalink() ) . '" rel="bookmark">';
+					echo '<img src="' . $img_url . '" width="' . $img['width'] . '" height="' . $img['height'] . '" alt="' . $img_alt . '" />';
+				echo '</a>';
 			}
 		?>
 

@@ -44,10 +44,10 @@
 										echo '<p>' . custom_short_excerpt($excerpt) . '...</p>';
 										echo '<a href="' . get_permalink() . '">Read More</a>';
 									echo '</div>';
-									
+
 									if ( $img ) {
 										echo '<a href="/testimonial/">';
-											echo '<img src="' . $img_url . '" width="' . $img['1'] . '" height="' . $img['2'] . '" alt="' . $img_alt . '" />';
+											echo '<img src="' . $img_url . '" width="' . $img['width'] . '" height="' . $img['height'] . '" alt="' . $img_alt . '" />';
 										echo '</a>';
 									}
 
