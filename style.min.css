@@ -311,6 +311,7 @@ footer.entry-footer i+span{margin-left:.5em}
 .post-type-archive-portfolio .content-area article.portfolio section.left{background-size:cover;background-repeat:no-repeat;padding:0}
 .post-type-archive-portfolio .content-area article.portfolio section.left img{opacity:0;visibility:hidden}
 .post-type-archive-portfolio .content-area article.portfolio section.right .right-inner{max-width:80%;display:block;margin:0 auto}
+.post-type-archive-portfolio .content-area article.portfolio section.right .right-inner .entry-content{margin:1.5em 0 3.5em 0}
 .single-testimonial .content-area .wrapper article{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .single-testimonial .content-area .wrapper article .entry-header,.single-testimonial .content-area .wrapper article .entry-content,.single-testimonial .content-area .wrapper article .entry-footer{max-width:860px;-ms-flex-preferred-size:100%;flex-basis:100%}
 .single-testimonial .content-area .wrapper article .entry-content{margin:0}
@@ -351,8 +352,8 @@ footer.entry-footer i+span{margin-left:.5em}
 .home .flex-wrap.portfolio .half,.home .flex-wrap.blog .half{-ms-flex-preferred-size:100%;flex-basis:100%}
 .home .flex-wrap .full{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .home .full-background:before,.home .full-background:after{display:block;width:1160px;height:100vh;background-size:1160px;background-repeat:no-repeat;position:absolute;-webkit-transition:all .5s ease;transition:all .5s ease}
-.home .full-background:before{content:'';background-image:url(/wp-content/themes/dustinleer/assets/img/nodes-left.svg);top:-50px;background-position:-775px 90px}
-.home .full-background:after{content:'';background-image:url(/wp-content/themes/dustinleer/assets/img/nodes-right.svg);top:150px;-webkit-transform:rotate(10deg);transform:rotate(10deg);right:-30px;background-position:700px top}
+.home .full-background:before{content:'';background-image:url(/wp-content/themes/dustinleer/assets/img/nodes-left.svg);top:-50px;background-position:-865px 90px}
+.home .full-background:after{content:'';background-image:url(/wp-content/themes/dustinleer/assets/img/nodes-right.svg);top:150px;-webkit-transform:rotate(10deg);transform:rotate(10deg);right:-30px;background-position:810px top}
 .home .pre-title{margin-bottom:0;line-height:.75em;color:#999899;font-size:1.05em;margin-top:2em}
 .home a.button.pink{background:#ec1846}
 .home a.button.pink:hover,.home a.button.pink:focus{background:#fff;color:#ec1846}
@@ -457,6 +458,7 @@ embed,iframe,object{max-width:100%}
 .post-type-archive-portfolio .content-area article.portfolio:nth-child(even) .left{-webkit-box-ordinal-group:3;-ms-flex-order:2;order:2}
 .post-type-archive-portfolio .content-area article.portfolio:nth-child(even) .right{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}
 .post-type-archive-portfolio .content-area article.portfolio section.left,.post-type-archive-portfolio .content-area article.portfolio section.right{width:50%}
+.post-type-archive-portfolio .content-area article.portfolio section.right .right-inner .entry-content{margin:1.5em 0}
 }@media(min-width:1000px){.flex.one-quarter{-ms-flex-preferred-size:30%;flex-basis:30%}
 .flex.three-quarter{-ms-flex-preferred-size:70%;flex-basis:70%}
 }@media(min-width:1020px){.post-type-archive .content-area .wrapper article.testimonial{-ms-flex-preferred-size:31%;flex-basis:31%}
