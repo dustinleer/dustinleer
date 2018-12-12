@@ -16,10 +16,10 @@
 		background-color: $pink;
 		// background-size: 200%;
 		&.no-testimonial {
-			background-position: left top;
-			@media ( min-width: 28.125em ) { // 450px
-				background-position: left bottom;
-			}
+			background-position: left bottom;
+			// @media ( min-width: 28.125em ) { // 450px
+			// 	background-position: left bottom;
+			// }
 		}
 	}
 	&-info.wrapper {
@@ -134,6 +134,12 @@
 					&:focus {
 						color: $white;
 					}
+					&:hover {
+						img {
+							border-color: $purple;
+							@include transition (all, 0.5s, ease);
+						}
+					}
 				}
 				&:first-child {
 					margin-left: 0;
@@ -144,7 +150,7 @@
 			}
 			.bubble {
 				background: $white;
-				color: #404040;
+				color: $black;
 				border-radius: 10px;
 				padding: 1.5em;
 				position: relative;
