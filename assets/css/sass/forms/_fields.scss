@@ -16,7 +16,7 @@ input[type="color"],
 textarea {
 	color: $color__text-input;
 	border: 1px solid $color__border-input;
-	background: #F8F8F8;
+	background: $gray_light;
 	border-radius: 3px;
 	padding: 3px;
 
