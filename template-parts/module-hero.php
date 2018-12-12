@@ -87,28 +87,28 @@ if ( is_blog() ) {
 							echo '<section class="hero-content">';
 								if ( is_single() ) {
 									$title = get_the_title( $post->post_id );
-								} else if ( is_archive() ) {
-									$title = single_cat_title( 'Posts on: ', false );
 								} else if ( is_tag() ) {
 									$title = single_tag_title( 'Posts on: ', false );
 								} else if ( is_post_type_archive() ) {
 									$title = post_type_archive_title( '', false );
+								} else if ( is_archive() ) {
+									$title = single_cat_title( 'Posts on: ', false );
 								} else {
 									$title = get_the_title( $post_id );
 								}
 								echo '<h1 class="title">' . $title . '</h1>';
 								
 								if ( is_single() ) {
+								} else if ( is_archive() && is_post_type_archive( 'testimonial' ) ) {
+									$content = get_field('testimonial_content', 'option');
+									echo '<p class="sub-title">' . $content . '</p>';
+								} else if ( is_archive() && is_post_type_archive( 'portfolio' ) ) {
+									$content = get_field('portfolio_content', 'option');
+									echo '<p class="sub-title">' . $content . '</p>';
 								} else if ( is_archive() || is_tag() ) {
 									$content = get_field('generic_content', 'option');
 									$addition_content = single_cat_title( '', false );
 									echo '<p class="sub-title">' . $content . ' <span class="standout">&ldquo;' . $addition_content . '&rdquo;</span>.</p>';
-								} else if ( is_post_type_archive( 'testimonial' ) ) {
-									$content = get_field('testimonial_content', 'option');
-									echo '<p class="sub-title">' . $content . '</p>';
-								} else if ( is_post_type_archive( 'portfolio' ) ) {
-									$content = get_field('portfolio_content', 'option');
-									echo '<p class="sub-title">' . $content . '</p>';
 								} else {
 									echo '<p class="sub-title">' . $content . '</p>';
 								}
