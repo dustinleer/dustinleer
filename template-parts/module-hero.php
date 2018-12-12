@@ -83,7 +83,7 @@ if ( is_blog() ) {
 						if ( $img_bg ) {
 							echo '<img class="hero-image" src="' . $img['sizes']['large'] . '" alt="' . $img['alt'] . '" />';
 						}
-						
+
 							echo '<section class="hero-content">';
 								if ( is_single() ) {
 									$title = get_the_title( $post->post_id );
@@ -102,7 +102,7 @@ if ( is_blog() ) {
 								} else if ( is_archive() || is_tag() ) {
 									$content = get_field('generic_content', 'option');
 									$addition_content = single_cat_title( '', false );
-									echo '<p class="sub-title">' . $content . ' &ldquo;' . $addition_content . '&rdquo;.</p>';
+									echo '<p class="sub-title">' . $content . ' <span class="standout">&ldquo;' . $addition_content . '&rdquo;</span>.</p>';
 								} else if ( is_post_type_archive( 'testimonial' ) ) {
 									$content = get_field('testimonial_content', 'option');
 									echo '<p class="sub-title">' . $content . '</p>';
