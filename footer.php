@@ -89,14 +89,13 @@
 								$title = $work_link_array['title'];
 								$target = $work_link_array['target'];
 								$excerpt = get_the_excerpt();
-								
 								$content = get_the_content();
 								
 								echo '<div class="testimonial">';
 									// var_dump(get_the_ID());
 									echo '<div class="bubble">';
 										// echo wp_trim_words( $content , '18' ); 
-										echo '<p>' . custom_short_excerpt($excerpt) . '...</p>';
+										echo '<p>' . custom_short_excerpt( $excerpt ) . '...</p>';
 										echo '<a href="' . get_permalink() . '">Read More</a>';
 									echo '</div>';
 									
