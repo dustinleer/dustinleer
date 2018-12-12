@@ -126,25 +126,27 @@
 		max-width: 1200px;
 	}
 
+	.nav-previous a:before {
+		border-left: 2px solid $pink;
+	}
+	.nav-next a:before {
+		border-right: 2px solid $pink;
+	}
+
 	.nav-previous a:before,
-	.nav-previous a:after,
-	.nav-next a:before,
-	.nav-next a:after {
+	.nav-next a:before {
 		content: '';
 		position: absolute;
-		width: 9px;
-		height: 2px;
-		background: $pink;
-		border-radius: 5px;
+		width: 12px;
+		height: 12px;
+		border-top: 2px solid $pink;
 		left: 0;
 		@include transition(all, 0.5s, ease-out);
 	}
 	
 	.nav-previous a:hover:before,
-	.nav-previous a:hover:after,
-	.nav-next a:hover:before,
-	.nav-next a:hover:after {
-		background: $purple;
+	.nav-next a:hover:before {
+		border-color: $purple;
 	}
 
 	.nav-previous {
@@ -152,7 +154,7 @@
 		float: none;
 		text-align: center;
 		padding-bottom: 1em;
-		@media ( min-width: 31.25em ) { //500px
+		@media ( min-width: 53.125em ) { //850px
 			width: 50%;
 			float: left;
 			padding: 0;
@@ -177,7 +179,7 @@
 		float: none;
 		text-align: center;
 		padding-top: 1em;
-		@media ( min-width: 31.25em ) { //500px
+		@media ( min-width: 53.125em ) { //850px
 			width: 50%;
 			text-align: right;
 			float: right;
