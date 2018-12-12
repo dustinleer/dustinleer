@@ -193,7 +193,7 @@
 						}
 					}
 					section {
-						padding: 2em;
+						// padding: 2em;
 						margin: 0;
 						align-self: center;
 						&.left,
@@ -277,11 +277,11 @@
 						max-width: 350px;
 						margin: 5px;
 						a {
-							border: 3px solid transparent;
+							border: 2px solid $purple;
 							display: block;
 							overflow: hidden;
 							&:hover {
-								border-color: $purple;
+								border-color: $pink;
 							}
 						}
 						img {
