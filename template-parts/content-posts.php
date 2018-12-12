@@ -44,7 +44,7 @@
                     echo '<div class="meta-wrap">';
                         echo '<div class="meta-date">';
                             echo '<i class="far fa-calendar-alt"></i> ';
-                            echo 'Posted on <a href="' . esc_url( get_permalink() ) . '">' . get_the_time('F jS, Y') . '</a>';
+                            echo 'Posted on <span class="strong">' . get_the_time('F jS, Y') . '</span>';
                         echo '</div>';
                         echo '<div class="meta-comments">';
                             echo '<i class="fas fa-comments"></i>';
