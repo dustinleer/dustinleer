@@ -100,7 +100,9 @@
 									echo '</div>';
 									
 									if ( $img ) {
-										echo '<img src="' . $img_url . '" width="' . $img['1'] . '" height="' . $img['2'] . '" alt="' . $img_alt . '" />';
+										echo '<a href="/testimonial/">';
+											echo '<img src="' . $img_url . '" width="' . $img['1'] . '" height="' . $img['2'] . '" alt="' . $img_alt . '" />';
+										echo '</a>';
 									}
 
 									echo '<h3>' . get_the_title() . '</h3>';
