@@ -68,7 +68,7 @@
 							$ids = get_field( 'testimonial_selector', false, false );
 							$args = array(  
 								'post_type' 		=> 'testimonial',
-								'posts_per_page' 	=> -1,
+								'posts_per_page' 	=> 3,
 								'post__in'			=> $ids,
 								'post_status'		=> 'any',
 								'orderby'        	=> 'post__in',
