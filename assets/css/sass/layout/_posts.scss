@@ -134,7 +134,7 @@
 								text-align: center;
 							}
 							h2.entry-title {
-								margin: 0;
+								margin: 0 0 0.25em 0;
 							}
 						}
 						.img-wrap {
@@ -245,6 +245,9 @@
 						max-width: 860px;
 						flex-basis: 100%;
 					}
+					h1.entry-title {
+						margin-bottom: 0;
+					}
 					.entry-content {
 						margin: 0;
 					}
@@ -255,6 +258,19 @@
 						border-radius: 50%;
 						border: 5px solid $white;
 					}
+				}
+			}
+		}
+		h1 + a.dark {
+			font-size: 1.25em;
+			color: $gray_med;
+			font-weight: normal;
+			margin-bottom: 0.65em;
+			display: inline-block;
+			&:visited {
+				color: $gray_med;
+				&:hover {
+					color: $purple;
 				}
 			}
 		}

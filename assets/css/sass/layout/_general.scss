@@ -190,6 +190,8 @@ span.ico {
 			text-decoration: none;
 			padding: .75em 1em;
 			border-radius: 5em;
+			display: inline-block;
+			margin: 0.5em 0;
 			&:hover,
 			&:focus {
 				background: $pink;
@@ -337,6 +339,10 @@ a {
 	}
 }
 
+.archive.category .entry-content {
+	margin: 1.5em 0 2.5em;
+}
+
 /**
  * The following code will make a github embedded gists reponsive
  * The gist will be 100% in width width, and scroll if a line is to long
@@ -373,4 +379,22 @@ footer.entry-footer i + span {
 
 .strong {
 	font-weight: $bold;
+}
+
+a.dark {
+	color: $gray_med;
+	text-decoration: none;
+	font-weight: $bold;
+	&:hover,
+	&:focus {
+		color: $pink;
+	}
+	&:visited {
+		&:visited {
+			color: $gray_med;
+			&:hover {
+				color: $pink;
+			}
+		}
+	}
 }
