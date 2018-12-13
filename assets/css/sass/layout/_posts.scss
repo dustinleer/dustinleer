@@ -32,7 +32,7 @@
 		justify-content: space-between;
 		align-items: center;
 		flex-wrap: wrap;
-		@media ( min-width: 650px ) {
+		@media ( min-width:40.625em ) { //650px
 			flex-wrap: nowrap;
 		}
 		.post-avatar {
@@ -44,7 +44,7 @@
 		.meta {
 			&-wrap {
 				margin-bottom: 0.5em;
-				@media ( min-width: 650px ) {
+				@media ( min-width:40.625em ) { //650px
 					margin-bottom: 0;
 					justify-content: flex-start;
 					text-align: left;
@@ -54,7 +54,7 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				@media ( min-width: 650px ) {
+				@media ( min-width:40.625em ) { //650px
 					justify-content: flex-end;
 				}
 			}
@@ -89,7 +89,7 @@
 						border-radius: 5px;
 						position: relative;
 						text-align: center;
-						@media ( min-width: 620px ) {
+						@media ( min-width: 38.75em ) { //620px
 							flex-basis: 47%;
 							margin: 1em;
 							&:nth-child(odd) {
@@ -99,7 +99,7 @@
 								margin-left: 0;
 							}
 						}
-						@media ( min-width: 1020px ) {
+						@media ( min-width: 63.75em ) { //1020px
 							flex-basis: 31%;
 							&:nth-child(odd) {
 								margin-right: 1em;
@@ -181,7 +181,7 @@
 					flex-direction: row;
 					margin: 0;
 					background-color: $gray;
-					@media (min-width: 980px) {
+					@media ( min-width: 61.25em ) { //980px
 						flex-wrap: nowrap;
 						&:nth-child(even) {
 							.left {
@@ -199,7 +199,7 @@
 						&.left,
 						&.right {
 							width: 100%;
-							@media (min-width: 980px) {
+							@media ( min-width: 61.25em ) { //980px
 								width: 50%;
 							}
 						}
@@ -219,7 +219,7 @@
 								margin: 0 auto;
 								.entry-content {
 									margin: 1.5em 0 3.5em 0;
-									@media (min-width: 980px) {
+									@media ( min-width: 61.25em ) { //980px
 										margin: 1.5em 0;
 									}
 								}

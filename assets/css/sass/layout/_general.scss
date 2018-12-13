@@ -133,43 +133,43 @@ span.ico {
 .flex {
 	&.half {
 		flex-basis: 100%;
-		@media (min-width: 800px) {
+		@media ( min-width: 50em ) { //800px
 			flex-basis: 49%;
 		}
 	}
 	&.one-quarter {
 		flex-basis: 100%;
-		@media (min-width: 800px) {
+		@media ( min-width: 50em ) { //800px
 			flex-basis: 40%;
 		}
-		@media (min-width: 1000px) {
+		@media ( min-width: 62.5em ) { //1000px
 			flex-basis: 30%;
 		}
-		@media (min-width: 1170px) {
+		@media ( min-width: 73.125em ) { //1170px
 			flex-basis: 24%;
 		}
 	}
 	&.three-quarter {
 		flex-basis: 100%;
-		@media (min-width: 800px) {
+		@media ( min-width: 50em ) { //800px
             flex-basis: 60%;
 		}
-		@media (min-width: 1000px) {
+		@media ( min-width: 62.5em ) { //1000px
             flex-basis: 70%;
 		}
-		@media (min-width: 1170px) {
+		@media ( min-width: 73.125em ) { //1170px
             flex-basis: 74%;
 		}
 	}
 	&.third {
 		flex-basis: 100%;
-		@media (min-width: 800px) {		
+		@media ( min-width: 50em ) { //800px) {
 			flex-basis: 32%;
 		}
 	}
 	&.two-third {
 		flex-basis: 100%;
-		@media (min-width: 800px) {		
+		@media ( min-width: 50em ) { //800px) {
 			flex-basis: 65%;
 		}
 	}
@@ -181,7 +181,7 @@ span.ico {
 		margin-bottom: 2em;
 		padding-bottom: 2em;
 		justify-content: space-between;
-		@media (min-width: 800px) {
+		@media ( min-width: 50em ) { //800px)
 			flex-wrap: nowrap;
 		}
 		a.button {
@@ -310,7 +310,7 @@ a {
 		flex-basis: 100%;
 		justify-content: center;
 		flex-wrap: wrap;
-		@media ( min-width: 550px ) {
+		@media ( min-width: 34.375em ) { //550px
 			flex-wrap: nowrap;
 		}
 		input.search-field {
@@ -321,14 +321,14 @@ a {
 		}
 		input.search-submit {
 			flex-basis: 80%;
-			@media ( min-width: 550px ) {
+			@media ( min-width: 34.375em ) { //550px
 				flex-basis: auto;
 			}
 		}
 		label {
 			flex-basis: 100%;
 			margin-bottom: 1em;
-			@media ( min-width: 550px ) {
+			@media ( min-width: 34.375em ) { //550px
 				flex-basis: 50%;
 				margin-bottom: 0;
 				margin-right: 1em;
