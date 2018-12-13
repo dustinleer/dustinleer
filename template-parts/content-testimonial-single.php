@@ -14,6 +14,13 @@
 	$img  = get_field( 'headshot' );
 	$img_alt = $img['alt'];
 	$img_url = $img['url'];
+
+	$work_title = get_field( 'job_title' );
+	$work_link_array = get_field( 'link' );
+	$link = $work_link_array['url'];
+	$title = $work_link_array['title'];
+	$target = $work_link_array['target'];
+
 	$excerpt = get_the_excerpt();
 	
 	if ( $img ) {
@@ -26,6 +33,10 @@
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		} else {
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		}
+
+		if ( $work_link_array ) {
+			echo '<a class="dark" href="' . $link . '" target="' . $target . '">' . $title . '</a>';
 		}
 
 		if ( 'post' === get_post_type() ) { ?>
