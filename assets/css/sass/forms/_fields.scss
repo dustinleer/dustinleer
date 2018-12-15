@@ -76,8 +76,11 @@ form.contact-form {
         &.grunion-field-name-wrap,
         &.grunion-field-email-wrap {
             display: flex;
-            width: 49%;
-            flex-wrap: wrap;
+            width: 100%;
+			flex-wrap: wrap;
+			@media ( min-width: 40.625em ) { //650px
+				width: 49%;
+			}
             > * {
                 display: flex;
                 flex-wrap: nowrap;
@@ -102,7 +105,9 @@ form.contact-form {
                 flex-wrap: wrap;
             }
             > .contact-form select {
-                flex-basis: 50% !important;
+				flex-basis: 50% !important;
+				width: 100%;
+				max-width: 400px;
             }
         }
         &.grunion-field-radio-wrap {
@@ -130,6 +135,14 @@ form.contact-form {
             }
         }
     }
+}
+
+form.contact-form select {
+	width: 100%;
+	max-width: 100%;
+	@media ( min-width: 40.625em ) { //650px
+		max-width: 420px;
+	}
 }
 
 .comments-area {
@@ -160,6 +173,7 @@ form.contact-form {
 				&-metadata {
 					display: flex;
 					flex-basis: 100%;
+					flex-wrap: wrap;
 				}
 			}
 			span.says {
