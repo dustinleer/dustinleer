@@ -14,10 +14,9 @@
         <?php
 			// Variables
 			$featured = get_the_post_thumbnail_url( $post, 'full' );
-            $authorName = get_the_author_meta('user_firstname');
             $authorID = get_the_author_meta( 'ID' );
             $authorImg = get_avatar_url( $authorID );
-            $comments = get_comments_number();
+			$comments = get_comments_number();
             
             if ( $comments == '0') {
                 $comments = 'There are no comments<span class="ico">😞</span>';
@@ -40,22 +39,7 @@
 			}
             
 			if ( 'post' === get_post_type() ) {
-                echo '<div class="entry-meta">';
-                    echo '<div class="meta-wrap">';
-                        echo '<div class="meta-date">';
-                            echo '<i class="far fa-calendar-alt"></i> ';
-                            echo 'Posted on <span class="strong">' . get_the_time('F jS, Y') . '</span>';
-                        echo '</div>';
-                        echo '<div class="meta-comments">';
-                            echo '<i class="fas fa-comments"></i>';
-                            echo '<a href="' . esc_url( get_permalink() ) . '#comments">' . $comments . '</a>';
-                        echo '</div>';
-                    echo '</div>';                    
-                    echo '<div class="meta-author">';
-                        echo '<span>Written by <strong>' . $authorName . '</strong></span>';
-                        echo '<img class="post-avatar" src="' . ($authorImg) . '" />';
-                    echo '</div>';
-				echo '</div><!-- .entry-meta -->';
+				echo dustinleer_posted_on();
 			}
 		?>
 	</header><!-- .entry-header -->

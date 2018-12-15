@@ -41,8 +41,26 @@ if ( ! function_exists( 'dustinleer_posted_on' ) ) :
 		'<span class="author vcard"><strong class="author-name">' . esc_html( get_the_author() ) . '</strong></span><img class="post-avatar" src="' . ($authorImg) . '" />'
 	);
 
-	echo '<span class="meta-wrap">' . $posted_on . '</span><span class="meta-author"> ' . $byline . '</span>'; // WPCS: XSS OK.
+	// echo '<span class="meta-author"> ' . $byline . '</span>'; // WPCS: XSS OK.
+	$comments = get_comments_number();
+	if ( $comments == '0') {
+		$comments = 'There are no comments<span class="ico">😞</span>';
+	} else {
+		$comments = $comments . ' Readers have commented<span class="ico">👏🏻</span>';
+	}
 
+	echo '<div class="entry-meta">';
+		echo '<div class="meta-wrap">';
+			echo '<div class="meta-date">';
+				echo '<span class="meta-wrap">' . $posted_on . '</span>';
+			echo '</div>';
+			echo '<div class="meta-comments">';
+				echo '<i class="fas fa-comments"></i>';
+				echo '<a href="' . esc_url( get_permalink() ) . '#comments">' . $comments . '</a>';
+			echo '</div>';
+		echo '</div>';	
+		echo '<div class="meta-author">' . $byline . '</div>';
+	echo '</div><!-- .entry-meta -->';
 }
 endif;
 
