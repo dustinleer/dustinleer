@@ -75,11 +75,13 @@
 		color: $white;
 		padding: .75em 0.5em;
 		font-size: 0.8em;
+		// font-weight: $bold;
+		@media ( min-width: 22.1875em ) { //355
+			font-size: 0.9em;
+			// font-weight: $normal;
+		}
 		@media ( min-width: 25em ) { //400px
 			padding: 0.75em 1em;
-		}
-		@media ( min-width: 36.25em ) { //580px
-			font-size: 0.9em;
 		}
 		@media ( min-width: 43.75em ) { //700px
 			padding: .75em 2em;
@@ -137,10 +139,14 @@
 	.nav-next a:before {
 		content: '';
 		position: absolute;
-		width: 12px;
-		height: 12px;
+		width: 10px;
+		height: 10px;
 		border-top: 2px solid $pink;
-		left: 0;
+		border-left: 2px solid $pink;
+		top: 5px;
+		left: 5px;
+		border-top: 2px solid $pink;
+		transform: rotate(45deg);
 		@include transition(all, 0.5s, ease-out);
 	}
 	
@@ -161,15 +167,10 @@
 			text-align: left;
 		}
 		a {
-			padding-left: 1em;
+			padding-left: 1.25em;
 			position: relative;
 			&:before {
-				top: 6px;
 				transform: rotate(-45deg);
-			}
-			&:after {
-				bottom: 6px;
-				transform: rotate(45deg);
 			}
 		}
 	}
@@ -186,20 +187,15 @@
 			padding: 0;
 		}
 		a {
-			padding-right: 1em;
+			padding-right: 1.25em;
 			position: relative;
 			&:before,
 			&:after {
 				left: auto;
-				right: 0;
+				right: 5px;
 			}
 			&:before {
-				top: 6px;
-				transform: rotate(45deg);
-			}
-			&:after {
-				bottom: 6px;
-				transform: rotate(-45deg);
+				border-left: 0;
 			}
 		}
 	}
