@@ -13,6 +13,8 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 			<div class="wrapper">
 
+                <a class="back posts" href="/blog/">View All Posts</a>
+
 				<?php
 				while ( have_posts() ) : the_post();
 
