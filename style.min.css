@@ -192,7 +192,7 @@ span.ico{margin-left:.5em}
 .flex-wrap a.button{background:#3d183d;color:#fff;text-decoration:none;padding:.75em 1em;border-radius:5em;display:inline-block;margin:.5em 0}
 .flex-wrap a.button:hover,.flex-wrap a.button:focus{background:#ec1846}
 .flex-wrap:last-child{border:0;margin:0;padding:0}
-.flex-wrap p.lead{font-size:22px;line-height:30px;font-weight:600;text-align:justify}
+.flex-wrap p.lead{font-size:22px;line-height:30px;font-weight:600}
 .flex-wrap img.profile{border-radius:50%;border:8px solid #3d183d;width:100%;max-width:270px}
 .flex-wrap img[src*="desk.svg"]{width:538px;display:block;margin:0 auto}
 .flex-wrap img[src*="file.svg"]{width:110px;display:block;margin:0 auto}
