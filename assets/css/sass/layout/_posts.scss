@@ -171,8 +171,10 @@
 					justify-content: center;
 					text-align: center;
 					margin: 2em 0;
+					.intro,
 					div {
-						max-width: 860px;
+						max-width: 892px;
+						padding: 1em;
 					}
 				}
 				article.portfolio {

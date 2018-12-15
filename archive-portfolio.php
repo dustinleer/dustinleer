@@ -17,7 +17,7 @@ get_header(); ?>
                     the_archive_description( '<div class="archive-description">', '</div>' );
                 ?>
             </header><!-- .page-header -->
-            <div>
+            <div class="intro">
                 <?php echo get_field( 'portfolio_intro_section', 'option' ); ?>
             </div>
         </section>
