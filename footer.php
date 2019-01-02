@@ -127,6 +127,20 @@
 			</div>
 			
 			<?php dustinleer_social_icons(); ?>
+		</section>
+
+		<section class="site-info wrapper">
+			<div class="policy">
+				<?php
+					// wp_nav_menu( array( 'theme_location' => 'secondary' ) );
+					wp_nav_menu( array(
+						'theme_location'  => 'secondary',
+						'container_class' => 'menu',
+						'container_id'	  => 'footer',
+						'menu_class'	  => 'nav-menu',
+					) );
+				?>
+			</div>
 		</section><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
