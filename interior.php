@@ -20,10 +20,11 @@ get_header();
         while ( have_rows( 'page_modules' ) ) {
             the_row();
             if( get_row_layout() == 'grid_layout' ) {
-                if( have_rows('grid_content') ) :				
+                if( have_rows('grid_content') ) {			
 					
 					// loop through the rows of data
-					while ( have_rows('grid_content') ) : the_row();
+					while ( have_rows('grid_content') ) {
+                        the_row();
 
                         $grid = get_sub_field( 'grid' );
                         $last = get_sub_field( 'last' );
@@ -31,8 +32,8 @@ get_header();
                         if ( $grid ) {
                             $grid = 'grid';
                         }
-                    endwhile;
-                endif;
+                    }
+                }
             }
         }
     }
@@ -49,6 +50,8 @@ get_header();
 				    endwhile; // End of the loop.
 
                 echo '</div>';
+
+                // write conditional for this below
 
                 echo '<div class="wrapper">';
                     while ( have_posts() ) : the_post();                        
@@ -67,5 +70,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();
