@@ -36,7 +36,7 @@
 		right: 0;
 		z-index: 2;
 		padding: 0 1em;
-		@media ( min-width: 61.875em ) { //990px
+		@media ( min-width: 63.75em ) { //1020px
 			flex-wrap: nowrap;
 		}
 		.sep {
@@ -63,7 +63,7 @@
 			flex-wrap: wrap;
 			padding: 1em 0;
 			font-weight: $bold;
-			@media ( min-width: 61.875em ) { //990px
+			@media ( min-width: 63.75em ) { //1020px
 				justify-content: flex-start;
 				flex-basis: 80%;
 				padding: 0;
@@ -76,7 +76,7 @@
 			font-size: 1.5em;
 			flex-basis: 100%;
 			justify-content: center;
-			@media ( min-width: 61.875em ) { //990px
+			@media ( min-width: 63.75em ) { //1020px
 				flex-basis: 20%;
 				justify-content: flex-end;
 			}
@@ -153,10 +153,14 @@
 					}
 				}
 				&:first-child {
-					margin-left: 0;
+					@media ( min-width : 50em ) { //800px
+						margin-left: 0;
+					}
 				}
 				&:last-child {
-					margin-right: 0;
+					@media ( min-width : 50em ) { //800px
+						margin-right: 0;
+					}
 				}
 			}
 			.bubble {
