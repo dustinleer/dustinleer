@@ -1,3 +1,40 @@
+.post-type-archive-portfolio,
+.portfolio-template-default {
+	.site-header {
+		.main-navigation {
+			.menu {
+				ul {
+					li {
+						&.main-menu-portfolio {
+							a:after {
+								background: $white;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.single-post {
+	.site-header {
+		.main-navigation {
+			.menu {
+				ul {
+					li {
+						&.main-menu-blog {
+							a:after {
+								background: $white;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+ 
 .site-header {
 	// display: flex;
 	// flex-grow: 1;
@@ -88,6 +125,11 @@
 						}
 						&:after {
 							display: none;
+						}
+					}
+					&.current-menu-item {
+						a:after {
+							background: $white;
 						}
 					}
 					a {
