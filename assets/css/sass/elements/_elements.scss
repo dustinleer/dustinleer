@@ -40,3 +40,22 @@ figure {
 }
 
 @import "tables";
+
+.buttons.post-btns {
+	display: flex;
+	flex-basis: 100%;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	text-align: center;
+	.button.post-btn {
+		display: flex;
+		flex-basis: auto;
+		text-align: center;
+		justify-content: center;
+		margin: 0.5em;
+	}
+}
+
+
+
