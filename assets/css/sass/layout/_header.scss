@@ -15,6 +15,20 @@
 			}
 		}
 	}
+	&.single-portfolio {
+		.site-header {
+			.hero-wrapper.featured-img:before {
+				content: '';
+				display: flex;
+				width: 100%;
+				position: absolute;
+				z-index: 1;
+				height: 100%;
+				opacity: .7;
+				background-color: $pink;
+			}
+		}
+	}
 }
 
 .single-post {
