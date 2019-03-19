@@ -46,37 +46,3 @@
 .microsoft.internet.explorer.version5 {
     
 }
-
-html {
-    margin: 0 !important;
-}
-
-.buorg {
-    position: fixed !important;
-    height: 100% !important;
-    background-color: rgba(29, 29, 29, .95) !important;
-    border: 0 !important;
-    color: #fff !important;
-    display: flex !important;
-    flex-basis: 100% !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    align-items: center !important;
-}
-
-.buorg-pad {
-    max-width: 760px;
-}
-
-a#buorgul {
-    background: #ec1846;
-}
-
-span.buorg-buttons a {
-    border-radius: 100px !important;
-    background: #ec1846 !important;
-}
-
-span.buorg-buttons a:hover {
-    background: #3d183d !important;
-}
