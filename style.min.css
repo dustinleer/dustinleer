@@ -236,6 +236,7 @@ a.dark:hover,a.dark:focus{color:#ec1846}
 a.dark:visited:visited{color:#999899}
 a.dark:visited:visited:hover{color:#ec1846}
 .post-type-archive-portfolio .site-header .main-navigation .menu ul li.main-menu-portfolio a:after,.portfolio-template-default .site-header .main-navigation .menu ul li.main-menu-portfolio a:after{background:#fff}
+.post-type-archive-portfolio.single-portfolio .site-header .hero-wrapper.featured-img:before,.portfolio-template-default.single-portfolio .site-header .hero-wrapper.featured-img:before{content:'';display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;position:absolute;z-index:1;height:100%;opacity:.7;background-color:#ec1846}
 .single-post .site-header .main-navigation .menu ul li.main-menu-blog a:after{background:#fff}
 .site-header{display:block;position:relative;background-color:#ec1846}
 .site-header:after{content:'';display:-webkit-box;display:-ms-flexbox;display:flex;background:#fff;position:absolute;width:100%;height:200px;bottom:-200px;left:0;-webkit-transform-origin:bottom left;transform-origin:bottom left;-webkit-transform:skewY(-3deg);transform:skewY(-3deg);z-index:1}
@@ -385,12 +386,6 @@ a.dark:visited:visited:hover{color:#ec1846}
 .netscape.version5.post-type-archive .content-area .wrapper{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 .netscape.version5 .page-header{-ms-flex-preferred-size:100%;flex-basis:100%}
 .netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='1'].testimonial,.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='4'].testimonial,.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='7'].testimonial,.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='10'].testimonial,.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='13'].testimonial,.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='16'].testimonial,.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='19'].testimonial,.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='3'].testimonial,.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='6'].testimonial,.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='9'].testimonial,.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='12'].testimonial,.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='15'].testimonial,.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='18'].testimonial,.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='21'].testimonial{margin:1em 0}
-html{margin:0 !important}
-.buorg{position:fixed !important;height:100% !important;background-color:rgba(29,29,29,0.95) !important;border:0 !important;color:#fff !important;display:-webkit-box !important;display:-ms-flexbox !important;display:flex !important;-ms-flex-preferred-size:100% !important;flex-basis:100% !important;-webkit-box-orient:horizontal !important;-webkit-box-direction:normal !important;-ms-flex-direction:row !important;flex-direction:row !important;-webkit-box-pack:center !important;-ms-flex-pack:center !important;justify-content:center !important;-webkit-box-align:center !important;-ms-flex-align:center !important;align-items:center !important}
-.buorg-pad{max-width:760px}
-a#buorgul{background:#ec1846}
-span.buorg-buttons a{border-radius:100px !important;background:#ec1846 !important}
-span.buorg-buttons a:hover{background:#3d183d !important}
 .sticky{display:block}
 .hentry{margin:0 0 1.5em}
 .byline,.updated:not(.published){display:none}
