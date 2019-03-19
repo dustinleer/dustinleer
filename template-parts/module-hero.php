@@ -42,8 +42,7 @@ if ( is_blog() ) {
 					$featured_img = $img_testimonial['url'];
 				} else if ( is_singular( 'testimonial' ) ) {
 					$featured_img = $feat_img['url'];
-					echo 'FED';
-				} else if ( is_post_type_archive( 'portfolio' ) ) {
+				}else if ( is_post_type_archive( 'portfolio' ) ) {
 					$featured_img = $img_portfolio['url'];
 				} else {
 					$featured_img = get_the_post_thumbnail_url( $post_id, 'full', get_option('page_for_posts') );

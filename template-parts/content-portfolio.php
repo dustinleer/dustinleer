@@ -16,6 +16,7 @@ $post_count = 1;
     /* Start the Loop */
     while ( have_posts() ) : the_post();
 
+	$img_port = get_field( 'hero_image' );
     $featured_img = get_the_post_thumbnail_url( $post, 'full' );
     $excerpt = get_the_excerpt();
 

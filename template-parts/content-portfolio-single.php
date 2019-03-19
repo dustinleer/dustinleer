@@ -17,6 +17,7 @@
 	$excerpt = get_the_excerpt();
 	
 	if ( $img ) {
+		echo 'hello';
 		echo '<img class="content-img" src="' . $img_url . '" width="' . $img['1'] . '" height="' . $img['2'] . '" alt="' . $img_alt . '" />';
 	}
 ?>
@@ -79,7 +80,7 @@
                             echo '<ul>';
                                 foreach( $images as $image ) {
                                     echo '<li>';
-                                        echo '<a class="img-box" data-fancybox="gallery" data-caption="' . $image['alt'] . '" href="'. $image['url'] .'">';
+										echo '<a class="img-box" data-fancybox="gallery" data-caption="' . $image['alt'] . '" href="'. $image['url'] .'" style="background-image: url('. $image['url'] .') ;">';
                                         // echo wp_get_attachment_image( $image['ID'], $size );
                                             echo '<img src="' . $image['sizes']['large'] . '" alt="' . $image['alt'] . '" />';
                                         echo '</a>';
