@@ -128,11 +128,12 @@ form.contact-form select{width:100%;max-width:100%}
 .comments-area .comment-list{margin:0;padding:0;list-style-type:none}
 .comments-area .comment-list img.avatar{margin-right:20px;border-radius:60px}
 .comments-area .comment-list .comment-meta{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-wrap:wrap;flex-wrap:wrap}
-.comments-area .comment-list .comment-author.vcard{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-bottom:1em;background:#f0f1f2;border-radius:40px}
-.comments-area .comment-list .comment-metadata{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.comments-area .comment-list .comment-author.vcard{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-bottom:1em;background:#f0f1f2;border-radius:40px;height:35px;margin:30px 0 15px 0}
+.comments-area .comment-list .comment-metadata{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 .comments-area .comment-list span.says{padding:0 1.5em 0 .5em}
 .comments-area .comment-list ol.children{margin:1.5em 0 1.5em 1.5em;background:#f0f1f2;border-radius:5px;padding:1em}
 .comments-area .comment-list .children .comment-author.vcard{background:#dddfe1}
+.comments-area .comment-list>li{border-bottom:1px solid #ccc;padding-bottom:30px;margin-bottom:30px}
 .comments-area .comment-form-author,.comments-area .comment-form-email,.comments-area .comment-form-url{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .comments-area .comment-form-author>label,.comments-area .comment-form-email>label,.comments-area .comment-form-url>label{-ms-flex-preferred-size:100%;flex-basis:100%}
 .comments-area .comment-form-author>input,.comments-area .comment-form-email>input,.comments-area .comment-form-url>input{padding:.5em;-ms-flex-preferred-size:50%;flex-basis:50%}
@@ -190,7 +191,7 @@ body{overflow-x:hidden}
 body .fancybox-container{z-index:99999}
 .visuallyhidden{position:absolute;overflow:hidden;clip:rect(0 0 0 0);margin:-1px;padding:0;width:1px;height:1px;border:0}
 .wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;padding:1em}
-span.ico{margin-left:.5em}
+span.ico{margin-left:.5em;display:inline-block}
 .blog .content-area .wrapper,.search .content-area .wrapper{-ms-flex-wrap:wrap;flex-wrap:wrap}
 .blog .content-area .wrapper article,.search .content-area .wrapper article{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .blog .content-area .wrapper article .entry-content,.search .content-area .wrapper article .entry-content{margin:0 0 2.5em}
@@ -245,7 +246,7 @@ a.cover-link{width:100%;display:block}
 .gist table{table-layout:fixed}
 .gist td.js-line-number{width:50px;text-align:center}
 .gist td.blob-code-inner{white-space:pre-wrap;word-wrap:break-word}
-.edit-link{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:100%;flex-basis:100%}
+.edit-link{display:-webkit-box;display:-ms-flexbox;display:flex}
 footer.entry-footer i+span{margin-left:.5em}
 .strong{font-weight:800}
 a.dark{color:#999899;text-decoration:none;font-weight:800}
@@ -536,4 +537,6 @@ form.contact-form select{max-width:420px}
 }@media screen and (max-width:782px){html{margin-top:0 !important}
 }@media(max-width:565px){ul,ol{margin:0;padding:0 0 0 1em;word-break:break-word}
 li>ul,li>ol{margin-left:0}
+}@media screen and (max-width:500px){.comments-area .comment-list .comment-metadata{-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
+.edit-link{-ms-flex-preferred-size:100%;flex-basis:100%}
 }

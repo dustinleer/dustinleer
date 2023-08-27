@@ -52,6 +52,7 @@ body {
 
 span.ico {
 	margin-left: 0.5em;
+	display: inline-block;
 }
 
 .blog,
@@ -410,7 +411,9 @@ a {
 
 .edit-link {
 	display: flex;
-	flex-basis: 100%;
+	@media screen and (max-width: 500px) {
+		flex-basis: 100%;
+	}
 }
 
 footer.entry-footer i + span {
