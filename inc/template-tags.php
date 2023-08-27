@@ -38,7 +38,7 @@ if ( ! function_exists( 'dustinleer_posted_on' ) ) :
 	$byline = sprintf(
 		/* translators: %s: post author. */
 		esc_html_x( 'Written by %s', 'post author', 'dustinleer' ),
-		'<span class="author vcard"><strong class="author-name">' . esc_html( get_the_author() ) . '</strong></span><img class="post-avatar" src="' . ($authorImg) . '" />'
+		'<span class="author vcard"><strong class="author-name">' . esc_html( get_the_author() ) . '</strong></span><img class="post-avatar" alt="Author avatar of ' . esc_html( get_the_author() ) . '" src="' . ($authorImg) . '" />'
 	);
 
 	// echo '<span class="meta-author"> ' . $byline . '</span>'; // WPCS: XSS OK.
@@ -65,6 +65,20 @@ if ( ! function_exists( 'dustinleer_posted_on' ) ) :
 	echo '</div><!-- .entry-meta -->';
 }
 endif;
+
+// Add alt tag to WordPress Gravatar images
+
+function dustinleer_gravatar_alt($dustinleerGravatar) {
+	if (have_comments()) {
+		$alt = get_comment_author();
+	}
+	else {
+		$alt = get_the_author_meta('display_name');
+	}
+	$dustinleerGravatar = str_replace('alt=\'\'', 'alt=\'Author avatar for ' . $alt . '\'', $dustinleerGravatar);
+	return $dustinleerGravatar;
+}
+add_filter('get_avatar', 'dustinleer_gravatar_alt');
 
 if ( ! function_exists( 'dustinleer_entry_footer' ) ) :
 /**
