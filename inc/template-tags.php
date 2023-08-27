@@ -17,24 +17,24 @@ if ( ! function_exists( 'dustinleer_posted_on' ) ) :
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
-		
+
 		$time_string = sprintf( $time_string,
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( get_the_date() ),
 		esc_attr( get_the_modified_date( 'c' ) ),
 		esc_html( get_the_modified_date() )
 	);
-	
+
 	$posted_on = sprintf(
 		/* translators: %s: post date. */
 		'<i class="far fa-calendar-alt"></i> ' . esc_html_x( 'Posted on %s', 'post date', 'dustinleer' ),
 		'<span>' . $time_string . '</span>'
 	);
-	
+
 	$authorName = get_the_author_meta('user_firstname');
 	$authorID = get_the_author_meta( 'ID' );
 	$authorImg = get_avatar_url( $authorID );
-	
+
 	$byline = sprintf(
 		/* translators: %s: post author. */
 		esc_html_x( 'Written by %s', 'post author', 'dustinleer' ),
@@ -45,6 +45,8 @@ if ( ! function_exists( 'dustinleer_posted_on' ) ) :
 	$comments = get_comments_number();
 	if ( $comments == '0') {
 		$comments = 'There are no comments<span class="ico">😞</span>';
+	} else if ( $comments <= '1' ) {
+		$comments = $comments . ' Reader has commented<span class="ico">👏🏻</span>';
 	} else {
 		$comments = $comments . ' Readers have commented<span class="ico">👏🏻</span>';
 	}
@@ -58,7 +60,7 @@ if ( ! function_exists( 'dustinleer_posted_on' ) ) :
 				echo '<i class="fas fa-comments"></i>';
 				echo '<a href="' . esc_url( get_permalink() ) . '#comments">' . $comments . '</a>';
 			echo '</div>';
-		echo '</div>';	
+		echo '</div>';
 		echo '<div class="meta-author">' . $byline . '</div>';
 	echo '</div><!-- .entry-meta -->';
 }
