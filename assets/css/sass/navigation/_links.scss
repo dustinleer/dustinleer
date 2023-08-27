@@ -1,0 +1,46 @@
+a {
+	color: $color__link;
+
+	&:visited {
+		color: $color__link-visited;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__link-hover;
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+.cta,
+.cta:visited,
+.cta:focus,
+.main-navigation li:last-child a,
+.main-navigation li:last-child a:visited,
+.main-navigation li:last-child a:focus {
+	background: $purple;
+	padding: 0.75em 2em;
+	border-radius: 50px;
+	color: $white;
+	text-decoration: none;
+	@include transition (all, 0.5s, ease);
+}
+
+.cta,
+.main-navigation li:last-child a {
+	&:hover {
+		background: $white;
+		color: $purple;
+	}
+}
+
+.hero-cta.cta {
+	font-size: 1.25em;
+	margin-top: 1em;;
+}

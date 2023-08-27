@@ -1,0 +1,440 @@
+#content {
+	position: relative;
+	z-index: 10;
+}
+
+// REMOVE THIS EVENTUALLY
+.buttons {
+	word-break: break-all;
+}
+
+.fas,
+.far {
+	margin-right: 0.5em;
+	color: $purple;
+}
+
+.far {
+	margin: 0.15em;
+}
+
+// .single {
+// 	.fas,
+// 	.far {
+// 		margin-right: 0;
+// 		color: $purple;
+// 	}
+// }
+
+body {
+	overflow-x: hidden;
+	.fancybox-container {
+		z-index: 99999;
+	}
+}
+
+.visuallyhidden {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	margin: -1px;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	border: 0;
+}
+
+.wrapper {
+	display: flex;
+	flex-basis: 100%;
+	padding: 1em;
+}
+
+span.ico {
+	margin-left: 0.5em;
+}
+
+.blog,
+.search {
+	.content-area {
+		.wrapper {
+			flex-wrap: wrap;
+			article {
+				display: flex;
+				flex-basis: 100%;
+				flex-wrap: wrap;
+				.entry-content {
+					margin: 0em 0 2.5em;
+					p {
+						margin: 0;
+						padding: 2.5em 0;
+					}
+				}
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+	// .site-main .posts-navigation {
+	// 	max-width: 960px;
+	// }
+}
+
+p,
+ul,
+ol {
+	line-height: 2;
+}
+
+@media (max-width: 565px) {
+	ul,
+	ol {
+		margin: 0;
+		padding: 0 0 0 1em;
+		word-break: break-word;
+	}
+
+	li {
+		> ul,
+		> ol {
+			margin-left: 0;
+		}
+	}
+}
+
+li.code-line.code-line {
+	margin: .75em 0;
+}
+
+.blog .content-area .wrapper header + article.post {
+	margin-top: 2em;
+}
+
+.search,
+.error404,
+.blog,
+.single.single-post,
+.archive.category {
+	.content-area {
+		.wrapper {
+			max-width: 960px;
+		}
+	}
+	.site-main .post,
+	.site-main .posts {
+		&-navigation {
+			max-width: 960px;
+		}
+	}
+}
+
+.entry {
+	&-header,
+	&-content,
+	&-footer {
+		width: 100%;
+	}
+}
+
+.site-main {
+	width: 100%;
+}
+
+.content-area {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	z-index: 9;
+	margin: 2em 0;
+	flex-wrap: wrap;
+	width: 100%;
+	.wrapper {
+		max-width: 1200px;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 auto;
+		&.grid {
+			justify-content: space-between;
+		}
+		article {
+			display: flex;
+			flex-basis: 100%;
+			flex-wrap: wrap;
+			width: 100%;
+		}
+	}
+}
+
+.flex {
+	&.half {
+		flex-basis: 100%;
+		@media ( min-width: 50em ) { //800px
+			flex-basis: 49%;
+		}
+	}
+	&.one-quarter {
+		flex-basis: 100%;
+		@media ( min-width: 50em ) { //800px
+			flex-basis: 40%;
+		}
+		@media ( min-width: 62.5em ) { //1000px
+			flex-basis: 30%;
+		}
+		@media ( min-width: 73.125em ) { //1170px
+			flex-basis: 24%;
+		}
+	}
+	&.three-quarter {
+		flex-basis: 100%;
+		@media ( min-width: 50em ) { //800px
+            flex-basis: 60%;
+		}
+		@media ( min-width: 62.5em ) { //1000px
+            flex-basis: 70%;
+		}
+		@media ( min-width: 73.125em ) { //1170px
+            flex-basis: 74%;
+		}
+	}
+	&.third {
+		flex-basis: 100%;
+		@media ( min-width: 50em ) { //800px) {
+			flex-basis: 32%;
+		}
+	}
+	&.two-third {
+		flex-basis: 100%;
+		@media ( min-width: 50em ) { //800px) {
+			flex-basis: 65%;
+		}
+	}
+	&-wrap {
+		display: flex;
+		flex-basis: 100%;
+		flex-wrap: wrap;
+		border-bottom: 1px solid $gray;
+		margin-bottom: 2em;
+		padding-bottom: 2em;
+		justify-content: space-between;
+		@media ( min-width: 50em ) { //800px)
+			flex-wrap: nowrap;
+		}
+		a.button {
+			background: $purple;
+			color: $white;
+			text-decoration: none;
+			padding: .75em 1em;
+			border-radius: 5em;
+			display: inline-block;
+			margin: 0.5em 0;
+			&:hover,
+			&:focus {
+				background: $pink;
+			}
+		}
+		&:last-child {
+			border: none;
+			margin: 0;
+			padding: 0;
+		}
+		p.lead {
+			font-size: 22px;
+			line-height: 30px;
+			font-weight: 600;
+			// text-align: justify;
+		}
+		img {
+			&.profile {
+				border-radius: 50%;
+				border: 8px solid $purple;
+				width: 100%;
+				max-width: 270px;
+			}
+			&[src*="desk.svg"] {
+				width: 538px;
+				display: block;
+				margin: 0 auto;
+			}
+			&[src*="file.svg"] {
+				width: 110px;
+				display: block;
+				margin: 0 auto;
+			}
+		}
+		.aligncenter {
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+			clear: both;
+		}
+	}
+}
+
+a {
+	color: $pink;
+	@include transition (all, 0.5s, ease);
+	&:hover,
+	&:focus {
+		color: $purple;
+	}
+	&:visited {
+		color: $pink;
+		&:hover {
+			color: $purple;
+		}
+	}
+	&.button {
+		background: $purple;
+		color: $white;
+		text-decoration: none;
+		padding: 0.75em 1em;
+		border-radius: 5em;
+		&:hover,
+		&:focus {
+			background: $pink;
+		}
+		&:visited {
+			&:hover,
+			&:focus {
+				color: $white;
+			}
+		}
+	}
+	&.back {
+		position: relative;
+		padding-left: 1.25em;
+		// flex-basis: 100%;
+		&.posts {
+			margin-top: 2em;
+			margin-bottom: 2em;
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			border-top: 2px solid $pink;
+			border-left: 2px solid $pink;
+			left: 5px;
+			top: 7px;
+			transform: rotate(-45deg);
+			@include transition(all, 0.5s, ease-out);
+		}
+		&:hover:before {
+			border-color: $purple;
+		}
+	}
+	&.cover-link {
+		width: 100%;
+		display: block;
+	}
+}
+
+.error404,
+.search.search-no-results {
+	&.not-found {
+		display: flex;
+		flex-basis: 100%;
+	}
+	.wrapper {
+		text-align: center;
+		justify-content: center;
+		.page-content {
+			flex-basis: 100%;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: 3em 0;
+		}
+	}
+	form.search-form {
+		display: flex;
+		flex-basis: 100%;
+		justify-content: center;
+		flex-wrap: wrap;
+		@media ( min-width: 34.375em ) { //550px
+			flex-wrap: nowrap;
+		}
+		input.search-field {
+			max-width: 100%;
+			flex-basis: 100%;
+			padding: 0.5em;
+			width: 100%;
+		}
+		input.search-submit {
+			flex-basis: 80%;
+			@media ( min-width: 34.375em ) { //550px
+				flex-basis: auto;
+			}
+		}
+		label {
+			flex-basis: 100%;
+			margin-bottom: 1em;
+			@media ( min-width: 34.375em ) { //550px
+				flex-basis: 50%;
+				margin-bottom: 0;
+				margin-right: 1em;
+			}
+		}
+	}
+}
+
+.archive.category .entry-content {
+	margin: 1.5em 0 2.5em;
+}
+
+/**
+ * The following code will make a github embedded gists reponsive
+ * The gist will be 100% in width width, and scroll if a line is to long
+ * if you want wrapping, uncomment the wrapping section
+ * Do note that identation may be butcherd tough
+ */
+.gist {
+	width:100%;
+	table {
+		table-layout: fixed;
+  	}
+	td {
+		&.js-line-number{
+		// We need an explicit width for the other column to be auto
+			width: 50px;
+			text-align: center;
+		}
+		// Uncomment this scetion to enable wrapping and disable horizontal scrolling
+		&.blob-code-inner{
+			white-space: pre-wrap;
+			word-wrap: break-word;
+		}
+	}
+}
+
+.edit-link {
+	display: flex;
+	flex-basis: 100%;
+}
+
+footer.entry-footer i + span {
+	margin-left: 0.5em;
+}
+
+.strong {
+	font-weight: $bold;
+}
+
+a.dark {
+	color: $gray_med;
+	text-decoration: none;
+	font-weight: $bold;
+	&:hover,
+	&:focus {
+		color: $pink;
+	}
+	&:visited {
+		&:visited {
+			color: $gray_med;
+			&:hover {
+				color: $pink;
+			}
+		}
+	}
+}

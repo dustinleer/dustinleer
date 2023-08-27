@@ -1,0 +1,241 @@
+.home {
+	.content-area {
+		margin-bottom: 0;
+		overflow: hidden;
+	}
+	.flex-wrap {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1em;
+		position: relative;
+		z-index: 2;
+		border: none;
+		&.intro {
+			flex-wrap: wrap;
+			max-width: 960px;
+			padding: 1em;
+			margin: 0 auto;
+			@media ( min-width: 40em ) { //640px
+				margin: 4em auto;
+			}
+			.full {
+				flex-wrap: wrap;
+				justify-content: center;
+				@media ( min-width: 40em ) { //640px
+					flex-wrap: nowrap;
+					justify-content: flex-start;
+				}
+				&:first-child {
+					padding-bottom: 0;
+					@media ( min-width: 40em ) { //640px
+						padding-bottom: 3em;
+					}
+					.img {
+						transform: rotate(-15deg);
+					}
+				}
+				&:last-child {
+					.img {
+						transform: rotate(10deg);
+						order: 0;
+						@media ( min-width: 40em ) { //640px
+							order: 1;
+						}
+					}
+				}
+			}
+			.img {
+				width: 170px;
+				max-width: 100%;
+				margin: 0 auto 2em auto;
+				@media ( min-width: 40em ) { //640px
+					width: 220px;
+				}
+				img {
+					max-width: 250px;
+				}
+			}
+			.content {
+				padding: 0 2em;
+				max-width: 705px;
+				@media ( min-width: 46.25em ) { //740px
+					padding: 0 4em;
+				}
+				.header {
+					font-size: 2.25em;
+					color: $pink;
+					text-transform: uppercase;
+					line-height: 2.5rem;
+					margin: 0;
+				}
+			}
+		}
+		&.portfolio {
+			margin-bottom: 0;
+			@media ( min-width: 50em ) { //800px
+				margin-bottom: 4em;
+			}
+			img {
+				border: 2px solid $purple;
+				width: 100%;
+			}
+			.flex.half {
+				margin-bottom: 4em;
+				@media ( min-width: 50em ) { //800px
+					flex-basis: 47%;
+					margin-bottom: 0;
+				}
+			}
+			p {
+				margin-bottom: 2.5em;
+			}
+		}
+		&.blog {
+			max-width: 100%;
+			padding: 0;
+			img {
+				width: 100%;
+			}
+			.half {
+				position: relative;
+				height: 560px;
+				color: $white;
+				@media ( min-width: 50em ) { //800px
+					flex-basis: 49.9%;
+				}
+				&:last-child:last-child {
+					border-top: 2px solid $white;
+					@media ( min-width: 50em ) { //800px
+						border-top: none;
+					}
+				}
+				&:before {
+					content: '';
+					display: flex;
+					flex-basis: 100%;
+					height: 100%;
+					background: rgba( $purple, 0.9 );
+				}
+				.post-inner {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					max-width: 100%;
+					width: 100%;
+					padding: 0 1em;
+					@media ( min-width: 22.5em ) { //360px
+						max-width: 100%;
+						width: 350px;
+						padding: 0;
+					}
+					h3 a {
+						color: $white;
+						font-size: 1.5em;
+						font-weight: normal;
+						&:hover,
+						&:focus {
+							color: $pink;
+						}
+					}
+				}
+			}
+		}
+		&.portfolio,
+		&.blog {
+			.full {
+				flex-wrap: wrap;
+				@media ( min-width: 50em ) { //800px
+					flex-wrap: nowrap;
+				}
+			}
+			.half {
+				flex-basis: 100%;
+			}
+		}
+		.full {
+			display: flex;
+			flex-basis: 100%;
+			justify-content: space-between;
+			align-items: stretch;
+		}
+	}
+	.full-background {
+		&:before,
+		&:after {
+			display: block;
+			width: 1160px;
+			height: 100vh;
+			background-size: 1160px;
+			background-repeat: no-repeat;
+			position: absolute;
+			@include transition (all, 0.5s, ease);
+		}
+		&:before {
+			content: '';
+			background-image: url(/wp-content/themes/dustinleer/assets/img/nodes-left.svg);
+			top: -50px;
+			background-position: -865px 90px;
+			@media ( min-width: 55em ) { //880px
+				background-position: -700px 90px
+			}
+			@media ( min-width: 88.75em ) { //1420px
+				background-position: -600px 90px;
+			}
+			@media ( min-width: 95em ) { //1520px
+				background-position: -500px 90px;
+			}
+		@media ( min-width: 101.25em ) { //1620px
+				background-position: -400px 90px;
+			}
+			@media ( min-width: 120em ) { //1920px
+				background-position: -255px 90px;
+			}
+		}
+		&:after {
+			content: '';
+			background-image: url(/wp-content/themes/dustinleer/assets/img/nodes-right.svg);
+			top: 150px;
+			transform: rotate(10deg);
+			right: -30px;
+			background-position: 810px top;
+			@media ( min-width: 55em ) { //880px
+				background-position: 600px top;
+			}
+			@media ( min-width: 88.75em ) { //1420px
+				background-position: 500px top;
+			}
+			@media ( min-width: 95em ) { //1520px
+				background-position: 400px top;
+			}
+		@media ( min-width: 101.25em ) { //1620px
+				background-position: 300px top;
+			}
+			@media ( min-width: 120em ) { //1920px
+				background-position: 200px top;
+			}
+		}
+	}
+	.pre-title {
+		margin-bottom: 0;
+		line-height: 0.75em;
+		color: $gray_med;
+		font-size: 1.05em;
+		margin-top: 2em;
+	}
+	a {
+		&.button.pink {
+			background: $pink;
+			&:hover,
+			&:focus {
+				background: $white;
+				color: $pink;
+			}
+		}
+		&.cover-link:hover img {
+			border-color: $pink;
+			@include transition (all, 0.5s, ease);
+
+		}
+	}
+}

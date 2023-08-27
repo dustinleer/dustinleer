@@ -1,0 +1,48 @@
+.netscape.version5.post-type-archive .content-area .wrapper {
+    justify-content: space-between;   
+}
+
+.netscape.version5 .page-header {
+    flex-basis: 100%;
+}
+
+.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='1'].testimonial,
+.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='4'].testimonial,
+.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='7'].testimonial,
+.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='10'].testimonial,
+.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='13'].testimonial,
+.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='16'].testimonial,
+.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='19'].testimonial,
+.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='3'].testimonial,
+.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='6'].testimonial,
+.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='9'].testimonial,
+.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='12'].testimonial,
+.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='15'].testimonial,
+.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='18'].testimonial,
+.netscape.version5.post-type-archive .content-area .wrapper article[data-attribute='21'].testimonial {
+    margin: 1em 0;
+}
+
+@media all and (min-width:63.75em) {
+    .netscape.version5.post-type-archive .content-area .wrapper article.testimonial {
+        margin: 1em 0;
+        -ms-flex-preferred-size: 28%;
+        flex-basis: 28%;
+    }
+}
+
+@media all and (min-width:38.75em) {
+    .netscape.version5.post-type-archive .content-area .wrapper article.testimonial {
+        -ms-flex-preferred-size: 43%;
+        flex-basis: 43%;
+    }
+}
+
+.microsoft.internet.explorer.version10,
+.microsoft.internet.explorer.version9,
+.microsoft.internet.explorer.version8,
+.microsoft.internet.explorer.version7,
+.microsoft.internet.explorer.version6,
+.microsoft.internet.explorer.version5 {
+    
+}

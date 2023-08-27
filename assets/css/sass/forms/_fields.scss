@@ -1,0 +1,244 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: $color__text-input;
+	border: 1px solid $color__border-input;
+	background: $gray_light;
+	border-radius: 3px;
+	padding: 3px;
+
+	&:focus {
+		color: $color__text-input-focus;
+	}
+}
+
+input {
+	&[type="text"],
+	&#email,
+	&#url {
+		width: 100%;
+		flex-basis: 100% !important;
+	}
+}
+
+select {
+	border: 1px solid $color__border-input;
+}
+
+textarea {
+	width: 100%;
+	resize: vertical;
+}
+
+button,
+submit,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border:none;
+	background: $purple;
+	color: $white;
+	text-decoration: none;
+	padding: .75em 1em !important;
+	border-radius: 5em;
+	font-size: 1em;
+	@include transition(all, 0.5s, ease-out);
+	&:hover,
+	&:focus {
+		background: $pink;
+	}
+}
+
+// Contact Form
+form.contact-form {
+	display: flex;
+	flex-direction: row;
+	flex-basis: 100%;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	input[type='url'] {
+		flex-basis: 50%;
+		max-width: 100%;
+	}
+	select {
+		height: 50px;
+		border-radius: 3px;
+	}
+	input,
+	text-area {
+		padding: 0.5em;
+	}
+    .grunion-field-wrap {
+		padding: 0.5em 0;
+        &.grunion-field-name-wrap,
+        &.grunion-field-email-wrap {
+            display: flex;
+            width: 100%;
+			flex-wrap: wrap;
+			@media ( min-width: 40.625em ) { //650px
+				width: 49%;
+			}
+            > * {
+                display: flex;
+                flex-wrap: nowrap;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+        }
+        &.grunion-field-name-wrap > .contact-form input[type='text'] {
+            width: 100%;
+        }
+        &.grunion-field-select-wrap,
+        &.grunion-field-radio-wrap,
+        &.grunion-field-url-wrap,
+        &.grunion-field-textarea-wrap {
+            display: flex;
+            flex-basis: 100%;
+            flex-wrap: wrap;
+        }
+        &.grunion-field-select-wrap {
+            > label.grunion-field-label.select {
+                flex-basis: 100%;
+                flex-wrap: wrap;
+            }
+            > .contact-form select {
+				flex-basis: 50% !important;
+				width: 100%;
+				max-width: 400px;
+            }
+        }
+        &.grunion-field-radio-wrap {
+            > * {
+                flex-basis: 100%;
+            }
+        }
+        &.grunion-field-url-wrap {
+            > * {
+                flex-basis: 100%;
+                flex-wrap: wrap;
+            }
+        }
+        &.grunion-field-textarea-wrap {
+            > .contact-form textarea {
+                flex-basis: 100% !important;
+            }
+        }
+        &.grunion-field-textarea-wrap {
+            > * {
+                flex-basis: 100%;
+            }
+            > .textarea {
+                resize: vertical;
+            }
+        }
+    }
+	.contact-form-dropdown {
+		&__menu {
+			background-color: #fff;
+			> ul {
+				border-top: 0;
+			}
+			ul.ui-menu {
+				border-top: 0;
+				border-radius: 0 0 3px 3px;
+				border-color: #ccc;
+				.ui-menu-item-wrapper {
+					padding: 0.5em 15px;
+				}
+			}
+		}
+		&__button.ui-button {
+			color: #666;
+			border: 1px solid #ccc;
+			background: #f8f8f8;
+			border-radius: 3px;
+			max-height: 42px;
+		}
+	}
+}
+
+form.contact-form select {
+	width: 100%;
+	max-width: 100%;
+	@media ( min-width: 40.625em ) { //650px
+		max-width: 420px;
+	}
+}
+
+.comments-area {
+	width: 100%;
+	.comment {
+		&-list {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			img.avatar {
+				margin-right: 20px;
+				border-radius: 60px;
+			}
+			.comment {
+				&-meta {
+					display: flex;
+					flex-basis: 100%;
+					align-items: center;
+					flex-wrap: wrap;
+				}
+				&-author.vcard {
+					display: flex;
+					align-items: center;
+					margin-bottom: 1em;
+					background: $gray;
+					border-radius: 40px;
+				}
+				&-metadata {
+					display: flex;
+					flex-basis: 100%;
+					flex-wrap: wrap;
+				}
+			}
+			span.says {
+				padding: 0 1.5em 0 0.5em;
+			}
+			ol {
+				&.children {
+					margin: 1.5em 0 1.5em 1.5em;
+					background: $gray;
+					border-radius: 5px;
+					padding: 1em;
+				}
+			}
+			.children .comment-author.vcard {
+				background: darken( $gray, 7% );
+			}
+		}
+		&-form {
+			&-author,
+			&-email,
+			&-url {
+				display: flex;
+				flex-basis: 100%;
+				flex-wrap: wrap;
+				> label {
+					flex-basis: 100%;
+				}
+				> input {
+					padding: .5em;
+					flex-basis: 50%;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,220 @@
+.site {
+	&-footer {
+		display: flex;
+		flex-basis: 100%;
+		flex-wrap: wrap;
+		position: relative;
+		justify-content: center;
+		z-index: 9;
+		height: 100%;
+		box-sizing: border-box;
+		color: $white;
+		padding: 2em 0;
+		background: url('/wp-content/themes/dustinleer/assets/img/node-mesh-footer.svg');
+		background-repeat: no-repeat;
+		background-position: center -150px;
+		background-color: $pink;
+		overflow: hidden;
+		// background-size: 200%;
+		&.no-testimonial {
+			background-position: left bottom;
+			// @media ( min-width: 28.125em ) { // 450px
+			// 	background-position: left bottom;
+			// }
+		}
+	}
+	&-info.wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		flex-basis: 100%;
+		justify-content: space-between;
+		width: 100%;
+		max-width: 1200px;
+		padding: 0;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		z-index: 2;
+		padding: 0 1em;
+		@media ( min-width: 63.75em ) { //1020px
+			flex-wrap: nowrap;
+		}
+		.sep {
+			margin: 0 0.5em;
+		}
+		a {
+			color: $white;
+			text-decoration: none;
+			&:hover {
+				color: $purple;
+			}
+		}
+		> * {
+			display: flex;
+			flex-basis: 50%;
+			align-content: center;
+			align-items: center;
+		}
+		.copyright {
+			font-size: 0.85em;
+			flex-basis: 100%;
+			justify-content: center;
+			text-align: center;
+			flex-wrap: wrap;
+			padding: 1em 0;
+			font-weight: $bold;
+			@media ( min-width: 63.75em ) { //1020px
+				justify-content: flex-start;
+				flex-basis: 80%;
+				padding: 0;
+			}
+		}
+		.social-media-icons {
+			margin: 0;
+			list-style: none;
+			padding: 0;
+			font-size: 1.5em;
+			flex-basis: 100%;
+			justify-content: center;
+			@media ( min-width: 63.75em ) { //1020px
+				flex-basis: 20%;
+				justify-content: flex-end;
+			}
+			li {
+				padding: 0 0.35em;
+				&:first-child {
+					padding-left: 0;
+				}
+				
+				&:last-child {
+					padding-right: 0;
+				}
+				a {
+					color: $purple;
+					&:hover {
+						color: $white;
+					}
+				}
+			}
+		}		
+	}
+	.testimonial-container {
+		display: flex;
+		flex-basis: 100%;
+		justify-content: center;
+		padding-bottom: 3em;
+		.testimonials.wrapper {
+			display: flex;
+			flex-basis: 100%;
+			width: 100%;
+			max-width: 1200px;
+			padding: 0 1em;
+			flex-wrap: wrap;
+			justify-content: center;
+			@media ( min-width: 50em ) { //800px
+				flex-wrap: nowrap;
+			}
+			> * {
+				flex-basis: 100%;
+				flex-wrap: wrap;
+				justify-content: center;
+				text-align: center;
+			}
+			.testimonial {
+				margin : 1em;
+				@media ( min-width: 72.5em ) { //1160px
+					margin: 2em;
+				}
+				img {
+					border: 5px solid $white;
+					border-radius: 50%;
+					margin: 1em;
+					max-width: 100px;
+					@media ( min-width: 50em ) { //800px
+						max-width: 185px;
+					}
+				}
+				h3 {
+					margin: 0;
+				}
+				a {
+					color: $purple;
+					text-decoration: none;
+					font-weight: $bold;
+					&:hover,
+					&:focus {
+						color: $white;
+					}
+					&:hover {
+						img {
+							border-color: $purple;
+							@include transition (all, 0.5s, ease);
+						}
+					}
+				}
+				&:first-child {
+					@media ( min-width : 50em ) { //800px
+						margin-left: 0;
+					}
+				}
+				&:last-child {
+					@media ( min-width : 50em ) { //800px
+						margin-right: 0;
+					}
+				}
+			}
+			.bubble {
+				background: $white;
+				color: $black;
+				border-radius: 10px;
+				padding: 1.5em;
+				position: relative;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				max-width: 410px;
+				margin: 0 auto 1em auto;
+				p {
+					margin-top: 0;
+					height: auto;
+					@media ( min-width: 50em ) { //800px
+						height: 165px;						
+					}
+					@media ( min-width: 53.75em ) { //860px
+						height: 140px;
+					}
+					@media ( min-width: 59.375em ) { //950px
+						height: 118px;						
+					}
+					@media ( min-width: 71.875em ) { //1150px
+						height: auto;						
+					}
+				}
+				a {
+					color: $pink;
+					font-weight: $normal;
+					border-bottom: 2px solid $pink;
+					&:hover,
+					&:focus {
+						color: $purple;
+						border-color: $purple;
+					}
+				}
+				&:after {
+					content: '';
+					background: $white;
+					position: absolute;
+					bottom: -13px;
+					left: 0;
+					width: 2em;
+					height: 2em;
+					border-radius: 5px;
+					transform: rotate(45deg);
+					display: block;
+					right: 0;
+					margin: auto;
+				}
+			}
+		}
+	}
+}
